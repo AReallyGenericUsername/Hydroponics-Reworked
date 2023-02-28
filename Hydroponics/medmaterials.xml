@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- For expanded Tobacco and Marijuana plants -->
+  <!-- Notes: 120px by 160px for cultivated large plants -->
+  <!-- 55px for seed bags and cultivated -->
+  <Item name="Europan Marijuana Plant" maxstacksize="8" sonarsize="30" description="Can be processed into a transplantable cutting in a plant processor, or it can be deconstructed and smoked." identifier="marijuanaplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="weedbud" />
+      <Item identifier="weedbud" />
+      <Item identifier="weedbud" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="0,0,108,166" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablemarijuana120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body radius="30" height="50" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="0.9" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Europan Tobacco Plant" sonarsize="30" maxstacksize="8" description="Can be processed into a transplantable cutting in a plant processor, or it can be deconstructed and smoked." identifier="tobaccoplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="tobaccoleaf" />
+      <Item identifier="tobaccoleaf" />
+      <Item identifier="tobaccoleaf" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootabletobacco120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="0.8" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Europan Coffee Plant" sonarsize="30" maxstacksize="8" description="Can be processed into a transplantable cutting in a plant processor, or it can be deconstructed and eaten." identifier="coffeeplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="coffeebeans" />
+      <Item identifier="coffeebeans" />
+      <Item identifier="coffeebeans" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablecoffee120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="1" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Europan Rubber Plant" sonarsize="30" maxstacksize="8" description="Can be processed into a transplantable cutting in a plant processor, or it can be deconstructed into latex." identifier="rubberplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="latex" />
+      <Item identifier="latex" />
+      <Item identifier="latex" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablerubber120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="1" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Europan Psilocybin Mushroom Growth" sonarsize="30" maxstacksize="8" description="Can be processed into an incubatable spore sample in a plant processor, or it can be deconstructed and smoked." identifier="pshroomplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="pshroom" />
+      <Item identifier="pshroom" />
+      <Item identifier="pshroom" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootableshrooms120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="0.5" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Europan Coca Plant" maxstacksize="8" sonarsize="30" description="Can be processed into a transplantable cutting in a plant processor, or it can be deconstructed into refinable coca leaves." identifier="cocaplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="medfabcab" minamount="0" maxamount="4" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Price baseprice="40" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1" sold="false" />
+      <Price locationtype="city" multiplier="1.2" minavailable="1" maxavailable="1" />
+      <Price locationtype="research" multiplier="0.8" minavailable="1" maxavailable="1" />
+      <Price locationtype="military" multiplier="0.8" sold="false" />
+      <Price locationtype="mine" multiplier="0.75" sold="false" />
+    </Price>
+    <Deconstruct time="5">
+      <Item identifier="cocaleaf" />
+      <Item identifier="cocaleaf" />
+      <Item identifier="cocaleaf" />
+    </Deconstruct>
+    <!-- <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="115,19,138,140" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablecoca120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Body width="120" height="120" density="12" />
+    <LevelResource deattachduration="1">
+      <Commonness commonness="0.6" />
+    </LevelResource>
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+</Items>

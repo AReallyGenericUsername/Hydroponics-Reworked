@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- For expanded Tobacco and Marijuana plants -->
+  <!-- Notes: 120px by 160px for cultivated large plants -->
+  <!-- 55px for seed bags and cultivated -->
+  <!-- Fiber Plant -->
+  <!-- fiber plant mush -->
+  <Item name="Fiber Plant Material" identifier="fiberplantmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="fiberplantseed" outcondition="0.1" />
+      <Item identifier="fiberplantseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="fiberplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedfiberplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="5,290,48,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="5,290,48,56" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- fiber plant seed -->
+  <Item name="Fiber Plant Cutting" identifier="fiberplantseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live fiber plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="6,231,51,44" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="6,231,51,44" origin="0.5,0.8" />
+    <Body width="51" height="44" density="10" />
+  </Item>
+  <!-- cultivated fiber plant -->
+  <Item name="Cultivated Fiber Plant" identifier="cultivatedfiberplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="organicfiber" />
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="0,0,108,166" />
+    <Sprite texture="Content/Items/Materials/LootablePlants.png" depth="0.2" sourcerect="0,0,108,166" origin="0.5,0.9" />
+    <Body radius="24" height="40" density="12" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Elastin Plant -->
+  <!-- elastin plant mush -->
+  <Item name="Elastin Plant Material" identifier="elastinplantmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="elastinplantseed" outcondition="0.1" />
+      <Item identifier="elastinplantseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="elastinplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedelastinplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="60,290,48,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="60,290,48,56" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- elastin plant cutting -->
+  <Item name="Elastin Plant Cutting" identifier="elastinplantseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live elastin plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="61,230,53,59" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="61,230,53,59" origin="0.5,0.8" />
+    <Body width="53" height="59" density="10" />
+  </Item>
+  <!-- cultivated elastin plant -->
+  <Item name="Cultivated Elastin Plant" identifier="cultivatedelastinplant" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="elastin" />
+      <Item identifier="elastin" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="108,0,147,140" />
+    <Sprite texture="Content/Items/Materials/LootablePlants.png" depth="0.2" sourcerect="108,0,147,140" origin="0.5,0.8" />
+    <Body width="96" height="96" density="12" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Poppy Plant -->
+  <!-- poppy plant mush -->
+  <Item name="Aquatic Poppy Material" identifier="aquaticpoppymaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="aquaticpoppyseed" outcondition="0.1" />
+      <Item identifier="aquaticpoppyseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="aquaticpoppy" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedaquaticpoppy" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="280,290,48,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="280,290,48,56" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- poppy plant cutting -->
+  <Item name="Aquatic Poppy Cutting" identifier="aquaticpoppyseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live poppy plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="281,230,46,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="281,230,46,56" origin="0.5,0.6" />
+    <Body width="46" height="56" density="10" />
+  </Item>
+  <!-- cultivated poppy plant -->
+  <Item name="Cultivated Aquatic Poppy" identifier="cultivatedaquaticpoppy" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="opium" />
+      <Item identifier="opium" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="0,166,114,111" />
+    <Sprite texture="Content/Items/Materials/LootablePlants.png" depth="0.2" sourcerect="0,166,114,111" origin="0.5,0.8" />
+    <Body radius="24" width="24" density="12" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Yeast Plant -->
+  <!-- yeast plant mush -->
+  <Item name="Yeast Shroom Material" identifier="yeastshroommaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="yeastshroomseed" outcondition="0.1" />
+      <Item identifier="yeastshroomseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="yeastshroom" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedyeastshroom" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="230,290,48,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="230,290,48,56" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- yeast plant sample -->
+  <Item name="Yeast Shroom Sample" identifier="yeastshroomseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A sample containing live yeast. It will die if not incubated soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="230,230,46,52" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="230,230,46,52" origin="0.5,0.8" />
+    <Body width="46" height="52" density="10" />
+  </Item>
+  <!-- cultivated yeast plant -->
+  <Item name="Cultivated Sea Yeast Shroom" identifier="cultivatedyeastshroom" category="Material" Tags="smallitem,plant" canbepicked="true" cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="ethanol" />
+      <Item identifier="ethanol" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="114,141,142,115" />
+    <Sprite texture="Content/Items/Materials/LootablePlants.png" depth="0.2" sourcerect="114,141,142,115" origin="0.5,0.8" />
+    <Body radius="32" width="40" density="12" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Slime Plant -->
+  <!-- slime plant mush -->
+  <Item name="Slime Bacteria Material" identifier="slimebacteriamaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="slimebacteriaseed" outcondition="0.1" />
+      <Item identifier="slimebacteriaseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="slimebacteria" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedslimebacteria" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="180,290,48,56" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="180,290,48,56" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- slime culture -->
+  <Item name="Slime Bacteria Culture" identifier="slimebacteriaseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A sample containing live myxobacteria. They will die if not incubated soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Hydroponics.png" sourcerect="180,230,43,42" />
+    <Sprite texture="%ModDir%/Hydroponics/Hydroponics.png" depth="0.2" sourcerect="180,230,43,42" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- cultivated slime plant -->
+  <Item name="Cultivated Slime Bacteria" identifier="cultivatedslimebacteria" category="Material" Tags="smallitem,plant" canbepicked="true" description="A colony of myxobacteria. Can be processed into antibiotics." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="antibiotics" />
+      <Item identifier="antibiotics" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/Materials/LootablePlants.png" sourcerect="0,277,144,122" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Materials/LootablePlants.png" depth="0.2" sourcerect="0,277,144,122" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- For expanded Tobacco and Marijuana plants -->
+  <!-- Notes: 120px by 160px for cultivated large plants -->
+  <!-- 55px for seed bags and cultivated -->
+  <!-- Marijuana Plant -->
+  <!-- Marijuana plant mush -->
+  <Item name="Cannabis Plant Material" identifier="marijuanabudmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="marijuanaseed" outcondition="0.1" />
+      <Item identifier="marijuanaseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="marijuanaplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedmarijuanaplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/weedseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/weedseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Marijuana Seed -->
+  <Item name="Cannabis Plant Cutting" identifier="marijuanaseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live cannabis plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedweed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedweed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Cannabis Plant -->
+  <Item name="Cultivated Europan Cannabis Plant" identifier="cultivatedmarijuanaplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of cannabis buds. Can be processed into THC." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="weedbud" />
+      <Item identifier="weedbud" />
+      <Item identifier="weedbud" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootablemarijuana120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablemarijuana120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Tobacco Plant -->
+  <!-- Tobacco plant mush -->
+  <Item name="Tobacco Plant Material" identifier="tobaccobudmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="tobaccoseed" outcondition="0.1" />
+      <Item identifier="tobaccoseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="tobaccoplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedtobaccoplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/tobaccoseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/tobaccoseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Tobacco Seed -->
+  <Item name="Tobacco Plant Cutting" identifier="tobaccoseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live tobacco plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedtobacco55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedtobacco55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Tobacco Plant -->
+  <Item name="Cultivated Europan Tobacco Plant" identifier="cultivatedtobaccoplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of tobacco leaves. Can be processed into Nicotine." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="tobaccoleaf" />
+      <Item identifier="tobaccoleaf" />
+      <Item identifier="tobaccoleaf" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootabletobacco120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootabletobacco120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Coffee Plant -->
+  <!-- Coffee plant mush -->
+  <Item name="Coffee Plant Material" identifier="coffeebeansmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="coffeeseed" outcondition="0.1" />
+      <Item identifier="coffeeseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="coffeeplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedcoffeeplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/coffeeseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/coffeeseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Coffee Seed -->
+  <Item name="Coffee Plant Cutting" identifier="coffeeseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live coffee plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedcoffee55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedcoffee55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Europan Coffee Plant -->
+  <Item name="Cultivated Coffee Plant" identifier="cultivatedcoffeeplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of coffee beans. Can be processed into Caffeine." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="coffeebeans" />
+      <Item identifier="coffeebeans" />
+      <Item identifier="coffeebeans" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootablecoffee120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablecoffee120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Rubber Plant -->
+  <!-- Rubber plant mush -->
+  <Item name="Rubber Plant Material" identifier="rubberplantmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="rubberseed" outcondition="0.1" />
+      <Item identifier="rubberseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="rubberplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedrubberplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/rubberseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/rubberseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Rubber Seed -->
+  <Item name="Rubber Plant Cutting" identifier="rubberseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live rubber plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedrubber55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedrubber55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Rubber Plant -->
+  <Item name="Cultivated Rubber Plant" identifier="cultivatedrubberplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of rubbery leaves. Can be processed into Latex sap." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="latex" />
+      <Item identifier="latex" />
+      <Item identifier="latex" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootablerubber120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablerubber120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Psilocybin Mushroom -->
+  <!-- Psilocybin Mushroom mush -->
+  <Item name="Psilocybin Mushroom Material" identifier="pshroomplantmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="pshroomseed" outcondition="0.1" />
+      <Item identifier="pshroomseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="pshroomplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedpshroomplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/shroomseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/shroomseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Psilocybin Mushroom Seed -->
+  <Item name="Psilocybin Mushroom Spores" identifier="pshroomseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="Live Psilocybin spores. They will die if not incubated soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedshrooms55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedshrooms55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Europan Psilocybin Mushroom -->
+  <Item name="Cultivated Psilocybin Mushroom" identifier="cultivatedpshroomplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of Psilocybin Mushrooms. Can be processed into DMT." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="pshroom" />
+      <Item identifier="pshroom" />
+      <Item identifier="pshroom" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootableshrooms120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootableshrooms120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <!-- Coca Plant -->
+  <!-- Coca plant mush -->
+  <Item name="Coca Plant Material" identifier="cocaplantmaterial" category="Material" Tags="smallitem,mush" canbepicked="true" description="A deconstructor could get something useful out of this." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="10">
+      <Item identifier="cocaseed" outcondition="0.1" />
+      <Item identifier="cocaseed" outcondition="0.1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="20">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cocaplant" />
+    </Fabricate>
+    <Fabricate suitablefabricators="plantprocessor" requiredtime="15">
+      <!-- <RequiredSkill identifier="botonist" level="40"/> -->
+      <RequiredItem identifier="cultivatedcocaplant" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cocaseed55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cocaseed55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.5" />
+    <Body width="48" height="56" density="10" />
+  </Item>
+  <!-- Coca Seed -->
+  <Item name="Coca Plant Cutting" identifier="cocaseed" category="Material" Tags="smallitem,seed" canbepicked="true" description="A live coca plant cutting. It will die if not planted soon." cargocontaineridentifier="metalcrate" scale="0.5" maxstacksize="1" impactsoundtag="impact_soft">
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnNotContained" target="This" condition="-0.5" />
+      <StatusEffect type="Always" target="This" condition="-0.5">
+        <Conditional condition="gt 1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/cultivatedcoca55px.png" sourcerect="0,0,55,55" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/cultivatedcoca55px.png" depth="0.2" sourcerect="0,0,55,55" origin="0.5,0.8" />
+    <Body width="43" height="42" density="10" />
+  </Item>
+  <!-- Cultivated Europan Coca Plant -->
+  <Item name="Cultivated Coca Plant" identifier="cultivatedcocaplant" category="Material" Tags="smallitem,plant" canbepicked="true" description="A bunch of coca leaves. Can be processed into Cocaine." cargocontaineridentifier="metalcrate" scale="0.3" maxstacksize="8" impactsoundtag="impact_soft">
+    <Deconstruct time="5">
+      <Item identifier="cocaleaf" />
+      <Item identifier="cocaleaf" />
+      <Item identifier="cocaleaf" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Plants/lootablecoca120px160.png" sourcerect="0,0,120,160" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Plants/lootablecoca120px160.png" depth="0.2" sourcerect="0,0,120,160" origin="0.5,0.8" />
+    <Body radius="32" width="32" density="15" />
+    <Holdable canBeCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" pickingtime="5.0" attachable="true" reattachable="false">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+</Items>

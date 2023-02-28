@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <FineZubanCigar name="Fine Zuban Cigar" identifier="zubancigar" category="Misc" Tags="longcigaritem,smallitem" description="A rolled Tobacco Cigar from Planet Zuban 5, It smells like fresh Zuban tobacco." cargocontaineridentifier="chemicalcrate">
+    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
+    <Price locationtype="Research" buyprice="140" />
+    <Price locationtype="Military" buyprice="160" />
+    <Price locationtype="City" buyprice="40" />
+    <Price locationtype="Outpost" buyprice="400" />
+    <Price locationtype="Mine" buyprice="200" />
+    <Deconstruct time="10">
+      <Item identifier="bluntwrapper" copycondition="true" />
+      <Item identifier="tobaccoleaf" copycondition="true" />
+      <Item identifier="nicotine" copycondition="true" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,0,34,6" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,6,34,6" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,12,34,6" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,18,34,6" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,24,34,6" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/zubanicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="32" height="4" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigarsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <!-- Normal cigs are 100/50 = -2 Condition -->
+        <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
+        <!-- Cigars Sould be double that of 100s at least -->
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-0.5">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,25" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="nicotineaddiction" amount="0.001" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+          <Affliction identifier="strengthen" amount="0.25" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </FineZubanCigar>
+  <CigarRollie name="Rolled Cigar" identifier="cigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Tobacco Cigar, It smells like fresh Europan tobacco." cargocontaineridentifier="chemicalcrate">
+    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
+    <Price locationtype="Research" buyprice="40" />
+    <Price locationtype="Military" buyprice="110" />
+    <Price locationtype="City" buyprice="40" />
+    <Price locationtype="Outpost" buyprice="110" />
+    <Price locationtype="Mine" buyprice="100" />
+    <Deconstruct time="10">
+      <Item identifier="bluntwrapper" copycondition="true" />
+      <Item identifier="tobaccoleaf" copycondition="true" />
+      <Item identifier="tobaccoleaf" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="bluntwrapper" />
+      <RequiredItem identifier="tobaccoleaf" />
+      <RequiredItem identifier="tobaccoleaf" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="bluntwrapper" />
+      <RequiredItem identifier="tobaccoleaf" />
+      <RequiredItem identifier="tobaccoleaf" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,0,34,6" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,6,34,6" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,12,34,6" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,18,34,6" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/OtherZubans.png" sourcerect="0,24,34,6" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cigarrollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="32" height="4" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigarsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <!-- Normal cigs are 100/50 = -2 Condition -->
+        <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
+        <!-- Cigars Sould be double that of 100s at least -->
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-0.5">
+          <ParticleEmitter particle="cigarsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,25" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="nicotineaddiction" amount="0.001" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+          <Affliction identifier="strengthen" amount="0.25" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </CigarRollie>
+  <WeedCigarRollie name="Rolled Blunt" identifier="weedcigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Blunt, It smells like fresh Europan cannabis." cargocontaineridentifier="chemicalcrate">
+    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
+    <!-- <Price locationtype="Research" buyprice="40" /> -->
+    <!-- <Price locationtype="Military" buyprice="40" /> -->
+    <!-- <Price locationtype="City" buyprice="100" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="110" /> -->
+    <!-- <Price locationtype="Mine" buyprice="100" /> -->
+    <Deconstruct time="5">
+      <Item identifier="bluntwrapper" copycondition="true" />
+      <Item identifier="weedbud" copycondition="true" />
+      <Item identifier="weedbud" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="bluntwrapper" />
+      <RequiredItem identifier="weedbud" />
+      <RequiredItem identifier="weedbud" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="40" />
+      <RequiredItem identifier="bluntwrapper" />
+      <RequiredItem identifier="weedbud" />
+      <RequiredItem identifier="weedbud" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,0,34,6" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,6,34,6" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,12,34,6" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,18,34,6" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,24,34,6" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weedcigarrollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="32" height="4" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="weedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="50" loop="true" />
+        <!-- Normal cigs are 100/50 = -2 Condition -->
+        <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
+        <!-- Cigars Sould be double that of 100s at least -->
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-5">
+          <ParticleEmitter particle="cigarsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+      <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="28,18" handle1="-5,-3" handle2="-5,-3">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="10.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="mjhigh" amount="0.09" />
+          <Affliction identifier="mjparalysis" amount="0.05" />
+          <Affliction identifier="nicotineaddiction" amount="0.001" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+          <Affliction identifier="strengthen" amount="0.25" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </WeedCigarRollie>
+  <SpiceCigarRollie name="Rolled Ballast Spice Blunt" identifier="spicecigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Blunt, It smells like the inside of a clown's... nevermind." cargocontaineridentifier="chemicalcrate">
+    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
+    <!-- <Price locationtype="Research" buyprice="40" /> -->
+    <!-- <Price locationtype="Military" buyprice="40" /> -->
+    <!-- <Price locationtype="City" buyprice="100" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="110" /> -->
+    <!-- <Price locationtype="Mine" buyprice="100" /> -->
+    <Deconstruct time="5">
+      <Item identifier="bluntwrapper" copycondition="true" />
+      <Item identifier="weedbud" copycondition="true" />
+      <Item identifier="weedbud" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="organicfiber" mincondition="0.4" />
+      <RequiredItem identifier="ballastspice" mincondition="0.4" usecondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,0,34,6" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,6,34,6" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,12,34,6" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,18,34,6" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,24,34,6" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/spicecigarrollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="32" height="4" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="spiceweedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <!-- Normal cigs are 100/50 = -2 Condition -->
+        <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
+        <!-- Cigars Sould be double that of 100s at least -->
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-10">
+          <ParticleEmitter particle="spicecigarsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+      <ParticleEmitter particle="spicefog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="28,18" handle1="-5,-3" handle2="-5,-3">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="spicehigh" amount="0.09" />
+          <Affliction identifier="mjparalysis" amount="0.08" />
+          <Affliction identifier="nicotineaddiction" amount="0.002" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+          <Affliction identifier="strengthen" amount="0.02" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </SpiceCigarRollie>
+  <LeGrandCigar name="Le Grand Cigar" description="Hand rolled by Queen Elizabeth II, with the original copy of the United States Constitution, stolen by Space Mushrooms." identifier="legrandcigar" category="Misc" Tags="cigaritem,mediumitem" cargocontaineridentifier="metalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="10000" />
+    <Price locationtype="Military" buyprice="10000" />
+    <Price locationtype="City" buyprice="10000" />
+    <Price locationtype="Outpost" buyprice="10000" />
+    <Price locationtype="Mine" buyprice="10000" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="60">
+      <Item identifier="usconstitution" copycondition="true" />
+      <Item identifier="weedbud" copycondition="true" />
+      <Item identifier="tobaccoleaf" copycondition="true" />
+      <Item identifier="cultivatedyeastshroom" copycondition="true" />
+    </Deconstruct>
+    <!--
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="60">
+      <RequiredSkill identifier="medical" level="50" />
+      <RequiredItem identifier="usconstitution"/>
+      <RequiredItem identifier="weedbud"/>
+      <RequiredItem identifier="tobaccoleaf" />
+      <RequiredItem identifier="cultivatedyeastshroom" />
+    </Fabricate>
+	-->
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/legrandcigar.png" sourcerect="0,0,75,25" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/legrandcigar.png" sourcerect="0,25,75,25" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/legrandcigar.png" sourcerect="0,50,75,25" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/legrandcigar.png" sourcerect="0,75,75,25" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/legrandcigar.png" sourcerect="0,100,75,25" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/lagrandcigaricon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="42" height="15" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigarsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-0.5">
+          <ParticleEmitter particle="cigarsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="5" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-150" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="60,25" handle1="-25,0" handle2="-25,0"></Holdable>
+  </LeGrandCigar>
+  <CupaCoffee name="Cup of Coffee" description="A cup of coffee, Europa Mermaid brand, It smells fresh." identifier="cupacoffee" category="Misc" scale="0.7" Tags="beverages,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="50" />
+    <Price locationtype="Outpost" buyprice="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="coffeebeans" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="10" />
+      <!-- ITS SALINE -->
+      <RequiredItem identifier="antibloodloss1" />
+      <RequiredItem identifier="coffeebeans" copycondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+      <RequiredSkill identifier="medical" level="10" />
+      <!-- ITSA BLOOD! -->
+      <RequiredItem identifier="antibloodloss2" />
+      <RequiredItem identifier="coffeebeans" copycondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="35">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="coffeebeans" copycondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/cupacoffee.png" sourcerect="0,0,25,50" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/cupacoffee.png" sourcerect="0,0,25,50" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cupacoffee120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="17" height="35" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="5">
+        <!-- These two essentially balances in a way you get twice as high
+			to keep getting the 101% buff, you must remain at maximum high costing you
+			the debuff that greens out the player-->
+        <Affliction identifier="cfhigh" amount="0.02" />
+        <Affliction identifier="coffeeaddiction" amount="0.007" />
+        <ReduceAffliction identifier="coffeewithdrawal" amount="0.5" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/10scoffee.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-8.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnUse" target="Hull" Oxygen="-80"/> -->
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10">
+      <StatusEffect type="OnActive" target="This" delay="0.25" stackable="true">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      </StatusEffect>
+    </Holdable>
+  </CupaCoffee>
+  <CupaTea name="Cup of Tea" description="A cup of Tea, Europa Grey brand, It smells fresh." identifier="cupatea" category="Misc" scale="0.7" Tags="beverages,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="50" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="cocaleaf" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="10" />
+      <!-- ITS SALINE -->
+      <RequiredItem identifier="antibloodloss1" />
+      <RequiredItem identifier="cocaleaf" copycondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+      <RequiredSkill identifier="medical" level="10" />
+      <!-- ITSA BLOOD! -->
+      <RequiredItem identifier="antibloodloss2" />
+      <RequiredItem identifier="cocaleaf" copycondition="true" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="35">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="alienblood" />
+      <RequiredItem identifier="cocaleaf" copycondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/cupatea.png" sourcerect="0,0,25,17" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/cupatea.png" sourcerect="0,0,25,17" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cupatea120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="17" height="25" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="5">
+        <!-- These two essentially balances in a way you get twice as high
+			to keep getting the 101% buff, you must remain at maximum high costing you
+			the debuff that greens out the player-->
+        <Affliction identifier="cokehigh" amount="0.02" />
+        <Affliction identifier="cokeoverdose" amount="0.002" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/10scoffee.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-8.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnUse" target="Hull" Oxygen="-80"/> -->
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="40,-10" handle1="0,-10" handle2="0,-10">
+      <StatusEffect type="OnActive" target="This" delay="0.25" stackable="true">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      </StatusEffect>
+    </Holdable>
+  </CupaTea>
+  <ShroomBottle name="Prescribed Magic Mushrooms" description="A pill bottle containing 3 doses of Psilocybin Mushrooms, It smells like fungus." identifier="shroombottle" category="Misc" scale="0.7" Tags="edibles,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="50" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="pshroom" copycondition="true" />
+      <Item identifier="pshroom" copycondition="true" />
+      <Item identifier="pshroom" copycondition="true" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="10" />
+      <!-- Made from plastic bottle, Psilocybin Mushrooms and dmt-->
+      <RequiredItem identifier="pshroom" />
+      <RequiredItem identifier="pshroom" />
+      <RequiredItem identifier="pshroom" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/shrooms56px25.png" sourcerect="0,0,14,25" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/shrooms56px25.png" sourcerect="14,0,14,25" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/shrooms56px25.png" sourcerect="28,0,14,25" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/shrooms56px25.png" sourcerect="42,0,14,25" depth="0.55" maxcondition="25" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/shrooms56px25.png" sourcerect="56,0,14,25" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/shroombottle120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="25" density="9.9" />
+    <RepairTool structurefixamount="0.0">
+      <StatusEffect type="OnUse" target="Character" duration="5" delay="60">
+        <!-- These two essentially balances in a way you get twice as high
+			to keep getting the 101% buff, you must remain at maximum high costing you
+			the debuff that greens out the player-->
+        <Affliction identifier="dmtHigh" amount="3" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+        <!-- Not meant for a long loop but will serve on short eating sounds -->
+        <sound file="%ModDir%/Hydroponics/Sounds/crunch.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-50.0" />
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="false" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10"></Holdable>
+  </ShroomBottle>
+  <WeedRollie name="Weed Joint" description="Loose Europan cannabis from questionable sources, rolled into a thin polycarbonate film for smoking." identifier="weedrollie" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" Condition="81" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="weedbud" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="organicfiber" />
+      <RequiredItem identifier="weedbud" copycondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,1,17,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,4,17,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,7,17,2" depth="0.55" maxcondition="40" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,10,17,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weedrollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="weedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="mjhigh" amount="0.09" />
+          <Affliction identifier="mjparalysis" amount="0.08" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </WeedRollie>
+  <SpiceRollie name="Ballast Spice Joint" description="Some stuff just doesn't want to be smoked, the wiggling tentacles are a dead giveaway." identifier="spicerollie" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" Condition="81" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="weedbud" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="2">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="organicfiber" mincondition="0.2" />
+      <RequiredItem identifier="ballastspice" mincondition="0.2" usecondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,1,17,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,4,17,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,7,17,2" depth="0.55" maxcondition="40" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,10,17,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/spicerollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="spiceweedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitter particle="spicefog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="spicehigh" amount="0.09" />
+          <Affliction identifier="mjparalysis" amount="0.08" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </SpiceRollie>
+  <TobaccoRollie name="Tobacco Joint" description="Loose Europan tobacco from questionable sources, rolled into a thin polycarbonate film for smoking." identifier="tobaccorollie" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <PreferredContainer primary="oldcigpack" minamount="0" maxamount="1" />
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" Condition="81" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
+    <Deconstruct time="10">
+      <Item identifier="tobaccoleaf" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="organicfiber" />
+      <RequiredItem identifier="tobaccoleaf" copycondition="true" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,1,17,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,4,17,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,7,17,2" depth="0.55" maxcondition="40" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,10,17,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/tobaccorollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="nicotineaddiction" amount="0.003" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="1.5" />
+          <Affliction identifier="strengthen" amount="0.40" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </TobaccoRollie>
+  <WeedCigarette name="Weed Cigarette" description="Quality weed in a thin polycarbonate film, ready for smoking." identifier="weedcigarette" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3" />
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="10" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <Deconstruct time="10">
+      <Item identifier="slimebacteria" outcondition="0.1" />
+      <Item identifier="rubber" outcondition="0.1" />
+      <Item identifier="carbon" outcondition="0.1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,1,17,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,4,17,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,7,17,2" depth="0.55" maxcondition="40" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/WeedCig.png" sourcerect="1,10,17,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weedcigaretteicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="weedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="mjhigh" amount="0.8" />
+          <Affliction identifier="mjparalysis" amount="0.075" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </WeedCigarette>
+  <Cigarette name="Cigarette" identifier="malborasek" category="Misc" Tags="cigaretteitem,smallitem" description="Quality tobacco in a thin polycarbonate film, ready for smoking." cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="oldcigpack" minamount="2" maxamount="10" spawnprobability="0.9" />
+    <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" />
+    <Price locationtype="Research" buyprice="7" />
+    <Price locationtype="Military" buyprice="8" />
+    <Price locationtype="City" buyprice="2" />
+    <Price locationtype="Outpost" buyprice="20" />
+    <Price locationtype="Mine" buyprice="10" />
+    <Deconstruct time="10">
+      <Item identifier="slimebacteria" outcondition="0.1" />
+      <Item identifier="rubber" outcondition="0.1" />
+      <Item identifier="carbon" outcondition="0.1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,1,17,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,4,17,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,7,17,2" depth="0.55" maxcondition="40" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,10,17,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cigaretteicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="14" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-50" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="nicotineaddiction" amount="0.002" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="1.0" />
+          <Affliction identifier="strengthen" amount="0.30" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </Cigarette>
+  <hundredsCigarette name="Cigarette 100s" identifier="hundredscigarette" category="Misc" Tags="longcigaretteitem,smallitem" description="A Loose Benges and Headsons 100mm Cigarette, It smells like fresh Europan tobacco" cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12" />
+    <Price locationtype="Research" buyprice="14" />
+    <Price locationtype="Military" buyprice="16" />
+    <Price locationtype="City" buyprice="4" />
+    <Price locationtype="Outpost" buyprice="40" />
+    <Price locationtype="Mine" buyprice="20" />
+    <Deconstruct time="10">
+      <Item identifier="slimebacteria" outcondition="0.1" />
+      <Item identifier="rubber" outcondition="0.1" />
+      <Item identifier="carbon" outcondition="0.1" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other100s.png" sourcerect="1,1,24,2" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other100s.png" sourcerect="1,4,24,2" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other100s.png" sourcerect="1,7,24,2" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other100s.png" sourcerect="1,10,24,2" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other100s.png" sourcerect="1,13,24,2" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cigarette100sicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="24" height="1" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <!-- Normal cigs are 100/50 = -2 Condition -->
+        <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-1.25">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-50" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="nicotineaddiction" amount="0.002" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="1.0" />
+          <Affliction identifier="strengthen" amount="0.30" />
+        </Explosion>
+      </StatusEffect>
+    </Holdable>
+  </hundredsCigarette>
+  <bnhcigpack name="Benges and Headsons 100s Cigarette Pack" identifier="bnhcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is of a particularly expensive brand." cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="outpostcrewcabinet" spawnprobability="0.1" />
+    <PreferredContainer primary="abandonedcrewcab" spawnprobability="0.05" />
+    <Price locationtype="Research" buyprice="40" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="24" />
+    <Price locationtype="Outpost" buyprice="50" />
+    <Price locationtype="Mine" buyprice="50" />
+    <Deconstruct time="5">
+      <Item identifier="plastic" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other3.png" sourcerect="0,0,10,21" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other3.png" sourcerect="0,0,10,21" depth="0.55" maxcondition="0" fadein="true" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/bnhpack120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="6" height="16" density="9.8" />
+    <Throwable slots="RightHand,LeftHand,Any" holdpos="0,0" handle1="0,0" throwforce="2" aimpos="35,-10">
+      <StatusEffect type="OnFire" target="This" Condition="-10" />
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Throwable>
+    <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
+      <Containable items="cigaretteitem,longcigaretteitem" />
+    </ItemContainer>
+  </bnhcigpack>
+  <oldcigpack name="Old Cigarette Pack" identifier="oldcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one has begun to rot away." cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="abandonedcrewcab" spawnprobability="0.8" />
+    <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.60" />
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="25" />
+    <Price locationtype="City" buyprice="12" />
+    <Price locationtype="Outpost" buyprice="25" />
+    <Price locationtype="Mine" buyprice="25" />
+    <Deconstruct time="5">
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="39,1,10,20" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="50,1,10,20" depth="0.55" maxcondition="0" fadein="true" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/oldpack120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="6" height="16" density="9.8" />
+    <Throwable slots="RightHand,LeftHand,Any" holdpos="0,0" handle1="0,0" throwforce="2" aimpos="35,-10">
+      <StatusEffect type="OnFire" target="This" Condition="-10" />
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Throwable>
+    <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
+      <Containable items="cigaretteitem" />
+    </ItemContainer>
+  </oldcigpack>
+  <newcigpack name="New Cigarette Pack" identifier="newcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is relatively well preserved." cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="outpostcrewcabinet" spawnprobability="0.3" />
+    <Price locationtype="Research" buyprice="80" />
+    <Price locationtype="Military" buyprice="96" />
+    <Price locationtype="City" buyprice="24" />
+    <Price locationtype="Outpost" buyprice="240" />
+    <Price locationtype="Mine" buyprice="120" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="5">
+      <RequiredSkill identifier="mechanical" level="35" />
+      <RequiredItem identifier="plastic" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="plastic" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other2.png" sourcerect="0,0,10,20" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="50,1,10,20" depth="0.55" maxcondition="0" fadein="true" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/newpack120px.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="6" height="16" density="9.8" />
+    <Throwable slots="RightHand,LeftHand,Any" holdpos="0,0" handle1="0,0" throwforce="2" aimpos="35,-10">
+      <StatusEffect type="OnFire" target="This" Condition="-10" />
+      <StatusEffect type="OnFire" target="This">
+        <Remove />
+      </StatusEffect>
+    </Throwable>
+    <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
+      <Containable items="cigaretteitem" />
+    </ItemContainer>
+  </newcigpack>
+  <Bottle name="Plastic Bottle" identifier="pbottle" category="Misc,oxygensource,oxygentank,refillableoxygentank" Tags="smallitem,poopcontainer" description="A simple plastic bottle. Hmmmmm..." cargocontaineridentifier="metalcrate" scale="0.5">
+    <Price locationtype="Research" buyprice="7" />
+    <Price locationtype="Military" buyprice="8" />
+    <Price locationtype="City" buyprice="2" />
+    <Price locationtype="Outpost" buyprice="20" />
+    <Price locationtype="Mine" buyprice="10" />
+    <Deconstruct time="10">
+      <Item identifier="rubber" outcondition="0.5" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="362,0,24,59" depth="0.55" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="362,0,23,59" depth="0.55" />
+    <Body width="3" height="7.25" density="9.9" />
+    <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="40,0" handle1="-1,0">
+      <Attack structuredamage="0" itemdamage="0" targetimpulse="2">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/jenkslosh.ogg" type="OnUse" range="100" loop="false" volume="100">
+          <RequiredItems identifier="poop" type="Contained" />
+        </sound>
+        <StatusEffect type="OnActive" target="Contained" targetslot="1" condition="0.3">
+          <RequiredItems identifier="poop" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="Contained" targetslot="0" condition="-0.025">
+          <RequiredItems identifier="balloondrug" type="Contained" />
+          <RequiredItems identifier="poop" type="Contained" />
+        </StatusEffect>
+      </Attack>
+    </Holdable>
+    <LightComponent lightcolor="0,0,0,0" range="0" powerconsumption="0" IsOn="false" castshadows="false">
+      <StatusEffect type="OnActive" target="Contained" targetslot="1" condition="0.2">
+        <RequiredItems identifier="poop" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" target="Contained" targetslot="0" condition="-0.025">
+        <RequiredItems identifier="balloondrug" type="Contained" />
+        <RequiredItems identifier="poop" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="Contained" targetslot="1" condition="1">
+        <requireditems identifier="poop" type="contained"></requireditems>
+      </StatusEffect>
+    </LightComponent>
+    <ItemContainer autofill="False" capacity="0" maxstacksize="0" hideitems="false" containedstateindicatorstyle="tank" containedstateindicatorslot="1" itempos="0,0" containedspritedepth="0.54">
+      <Containable items="none" />
+      <SubContainer capacity="1" maxstacksize="1" hideitems="true">
+        <Containable items="poop">
+          <StatusEffect type="OnContaining" target="this" ison="true" />
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1" containedspritedepth="0.55">
+        <Containable items="balloondrug"></Containable>
+      </SubContainer>
+    </ItemContainer>
+  </Bottle>
+  <JenkBalloon name="Rubber Balloon" identifier="balloondrug" category="Equipment" Tags="smallitem,oxygentank,oxygensource" cargocontaineridentifier="metalcrate" description="An unassuming plastic balloon." scale="0.5">
+    <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.01" />
+    <Price baseprice="5">
+      <Price storeidentifier="merchantoutpost" minavailable="3" />
+      <Price storeidentifier="merchantcity" minavailable="2" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="10" />
+      <Price storeidentifier="merchantengineering" minavailable="5" multiplier="0.9" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="46,85,29,44" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="75,132,32,44" depth="0.55" origin="0.6,1.6" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="75,176,33,44" depth="0.55" origin="0.6,1.6" maxcondition="80" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" sourcerect="105,85,32,44" depth="0.55" origin="0.6,1.6" maxcondition="33" />
+    <Deconstruct time="10">
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="1" outcondition="0.0">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="rubber" amount="1" />
+    </Fabricate>
+    <Body width="2.9" height="4.4" density="9.9" />
+    <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="20,6" handle1="5,17" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This">
+        <Explosion range="2.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+          <Affliction identifier="jenk" amount="0.1"></Affliction>
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-1.5"></StatusEffect>
+    </Holdable>
+    <Sprayer barrelpos="-5,0" spread="0" unskilledspread="0" drawhudwhenequipped="false" crosshairscale="0.0" spraystrength="0.0" range="0">
+      <ParticleEmitter particle="spray" color="100,50,0,0" velocitymin="0.0" velocitymax="5.0" particlespersecond="5" />
+      <sound file="Content/Items/Tools/Sprayer.ogg" type="OnUse" range="500.0" loop="true" />
+      <!--When containing paint, reduce its condition by 1.5 when used-->
+      <!--Reduce ethanol condition slower than paint-->
+    </Sprayer>
+  </JenkBalloon>
+</Items>
+<!-- legacy **************************************************************************************** -->
+<!-- Medical items -->
+<!--
+  <Item
+    name="Oxygenic Acid"
+    identifier="erythrozine"
+    category="Material"
+    spritecolor="0.5,0.5,1.0,1.0"
+    containercolor="0.5,0.5,1.0,1.0"
+    cargocontaineridentifier="chemicalcrate"
+    Tags="smallitem,chem,medical"
+    description="Most commonly used for treating oxygen deprivation."
+    useinhealthinterface="true">
+    
+    <Price locationtype="Research" buyprice="25"/>
+    <Price locationtype="Military" buyprice="25"/>
+    <Price locationtype="City" buyprice="50"/>
+    <Price locationtype="Outpost" Condition="81"/>
+
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="128,192,64,64"/>
+    <Sprite texture="med.png" sourcerect="24,16,8,16" depth="0.6" />
+
+    <Body width="8" height="16" density="20"/>
+
+    <SuitableTreatment identifier="oxygenlow" suitability="50"/>
+
+    <ItemComponent>
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="10.0">
+        <ReduceAffliction identifier="oxygenlow" amount="1"/>
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
+    </ItemComponent>
+    
+    <Throwable characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10">
+      <StatusEffect tags="medical" type="OnUse" target="Character" duration="10">
+        <ReduceAffliction identifier="oxygenlow" amount="2"/>
+        <RequiredItem identifier="medicalsyringe" type="Container"/>
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove/>
+      </StatusEffect>
+    </Throwable>
+  </Item>
+-->

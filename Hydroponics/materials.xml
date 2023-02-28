@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- For expanded Tobacco and Marijuana plants -->
+  <!-- Notes: 120px by 160px for cultivated large plants -->
+  <!-- 55px for seed bags and cultivated -->
+  <!-- The by products of the plant making should not be buyable tbh. -->
+  <Item name="Coca Leaf" identifier="cocaleaf" category="Material" maxstacksize="8" Tags="smallitem" canbepicked="true" description="A dried product of the Europan coca plant. Ready to be be refined into cocaine." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Deconstruct time="5">
+      <Item identifier="cocaine" />
+    </Deconstruct>
+    <!-- TODO: adjust prices -->
+    <!-- <Price locationtype="Research" buyprice="31" /> -->
+    <!-- <Price locationtype="Military" buyprice="31" /> -->
+    <!-- <Price locationtype="City" buyprice="31" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="31" /> -->
+    <!-- <Price locationtype="Mine" buyprice="21" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/cocaleaficon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/cocaleaf.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="45" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Tobacco Leaf" identifier="tobaccoleaf" category="Material" maxstacksize="8" Tags="smallitem" canbepicked="true" description="A dried product of the Europan tobacco plant. Ready to be rolled up or smoked in a pipe." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Deconstruct time="5">
+      <Item identifier="nicotine" copycondition="true" />
+    </Deconstruct>
+    <!-- TODO: adjust prices -->
+    <!-- <Price locationtype="Research" buyprice="31" /> -->
+    <!-- <Price locationtype="Military" buyprice="31" /> -->
+    <!-- <Price locationtype="City" buyprice="31" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="31" /> -->
+    <!-- <Price locationtype="Mine" buyprice="21" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/tobaccoleaficon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/Tobaccoleaf77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="45" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Cannabis Bud" identifier="weedbud" category="Material" Tags="smallitem" maxstacksize="8" canbepicked="true" description="A dried product of the Europan cannabis plant. Ready to be rolled up or smoked in a pipe. " cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Deconstruct time="5">
+      <Item identifier="thc" copycondition="true" />
+    </Deconstruct>
+    <!-- TODO: adjust prices -->
+    <!-- <Price locationtype="Research" buyprice="31" /> -->
+    <!-- <Price locationtype="Military" buyprice="31" /> -->
+    <!-- <Price locationtype="City" buyprice="31" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="31" /> -->
+    <!-- <Price locationtype="Mine" buyprice="21" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/weedbudicon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/weedbud77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="45" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Coffee Beans" identifier="coffeebeans" category="Material" maxstacksize="8" Tags="smallitem" canbepicked="true" description="A dried product of the Europan coffee plant. Ready to be brewed or eaten whole." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Deconstruct time="5">
+      <Item identifier="caffeine" copycondition="true" />
+    </Deconstruct>
+    <!-- TODO: adjust prices -->
+    <!-- <Price locationtype="Research" buyprice="31" /> -->
+    <!-- <Price locationtype="Military" buyprice="31" /> -->
+    <!-- <Price locationtype="City" buyprice="31" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="31" /> -->
+    <!-- <Price locationtype="Mine" buyprice="21" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/beanbagicon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/beanbag77px79.png" sourcerect="0,0,77,79" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="41" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="US Constitution" identifier="usconstitution" category="Material" Tags="smallitem" canbepicked="true" description="An original copy of the United States Constitution written by James Madison Jr." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="1" spawnprobability="0.06" />
+    <Deconstruct time="5"></Deconstruct>
+    <!-- TODO: adjust prices
+    <Price locationtype="Research" buyprice="3" />
+    <Price locationtype="Military" buyprice="2" />
+    <Price locationtype="City" buyprice="1" />
+    <Price locationtype="Outpost" buyprice="3" />
+    <Price locationtype="Mine" buyprice="2" />
+	-->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/usconstitutionicon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/usconstitution92px36.png" sourcerect="0,0,92,36" depth="0.55" origin="0.5,0.5" />
+    <Body width="46" height="20" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Blunt Wrapper" identifier="bluntwrapper" category="Material" Tags="smallitem" maxstacksize="8" canbepicked="true" description="A tobacco leaf sheet, thick enough to contain tobacco or cannabis. Commonly used to make cigars." cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="1" spawnprobability="0.06" />
+    <Deconstruct time="5">
+      <Item identifier="tobaccoleaf" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="tobaccoleaf" />
+    </Fabricate>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="25" />
+      <RequiredItem identifier="tobaccoleaf" />
+    </Fabricate>
+    <!-- Can't buy these or shouldn't be able to -->
+    <!-- <Price locationtype="Research" buyprice="3" /> -->
+    <!-- <Price locationtype="Military" buyprice="2" /> -->
+    <!-- <Price locationtype="City" buyprice="1" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="3" /> -->
+    <!-- <Price locationtype="Mine" buyprice="2" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/bluntwrappericon120px.png" sourcerect="0,0,120,120" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/bluntwrapper32px12.png" sourcerect="0,0,32,12" depth="0.55" origin="0.5,0.5" />
+    <Body width="32" height="12" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Sulphur" identifier="sulphur" category="Material" Tags="smallitem" maxstacksize="8" canbepicked="true" description="A jar of yellow combustible non metal." cargocontaineridentifier="chemicalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="1" maxamount="2" spawnprobability="1" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.125" />
+    <Price locationtype="Research" buyprice="10" />
+    <Price locationtype="Military" buyprice="10" />
+    <Price locationtype="City" buyprice="10" />
+    <Price locationtype="Outpost" buyprice="20" />
+    <Price locationtype="Mine" buyprice="20" />
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/Sulphur77px92.png" sourcerect="0,0,77,92" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/Sulphur77px92.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="45" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <!-- <StatusEffect type="OnBroken" target="This"> -->
+      <!-- <Remove /> -->
+      <!-- </StatusEffect> -->
+      <StatusEffect type="OnFire" target="this" Condition="-100.0" />
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/ExplosionSmall2.ogg" selectionmode="All" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" selectionmode="All" range="5000" />
+        <Explosion range="500" force="0.1">
+          <Affliction identifier="burn" strength="5" />
+          <Affliction identifier="stun" strength="3" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Latex sap" identifier="latex" category="Material" Tags="smallitem" maxstacksize="8" canbepicked="true" description="A sticky white bucket of latex sap from a rubber plant." cargocontaineridentifier="chemicalcrate" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="storagecab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.125" />
+    <!-- <Price locationtype="Research" buyprice="10" /> -->
+    <!-- <Price locationtype="Military" buyprice="10" /> -->
+    <!-- <Price locationtype="City" buyprice="10" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="20" /> -->
+    <!-- <Price locationtype="Mine" buyprice="20" /> -->
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/latexicon128px.png" sourcerect="0,0,128,128" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/latex77px79.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="40" height="45" density="50" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <!-- Remove the item when fully used -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+  <Item name="Ballast Spice" identifier="ballastspice" category="Misc" Tags="smallitem,ballastspice" maxstacksize="1" canbepicked="true" description="Also known as Europan Gold; a coarsely ground mixture known to act as an ideal incubator for fungal growths found the in ballast of any submarine. Submariners are known to place it in plastic bags held close to their body as a source of heat to help it grow." cargocontaineridentifier="metalcrate" scale="0.1" impactsoundtag="impact_soft">
+    <!-- <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="1"/> -->
+    <!-- <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="3" spawnprobability="0.06"/> -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="1" outcondition="0.005">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="aluminum" amount="1" />
+      <RequiredItem identifier="copper" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5"></Deconstruct>
+    <!-- TODO: adjust prices -->
+    <!-- <Price locationtype="Research" buyprice="31" /> -->
+    <!-- <Price locationtype="Military" buyprice="31" /> -->
+    <!-- <Price locationtype="City" buyprice="31" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="31" /> -->
+    <!-- <Price locationtype="Mine" buyprice="21" /> -->
+    <Sprite texture="%ModDir%/Hydroponics/Materials/ballastspice.png" sourcerect="221,171,186,148" depth="0.55" origin="0.5,0.5" />
+    <BrokenSprite texture="%ModDir%/Hydroponics/Materials/ballastspice.png" sourcerect="21,12,186,148" depth="0.55" maxcondition="15" />
+    <BrokenSprite texture="%ModDir%/Hydroponics/Materials/ballastspice.png" sourcerect="221,12,186,148" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Hydroponics/Materials/ballastspice.png" sourcerect="21,171,186,148" depth="0.55" maxcondition="75" />
+    <Body width="5" height="5" density="9.9" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" handle1="0,0" msg="ItemMsgPickUpSelect"></Holdable>
+    <LightComponent LightColor="230,0,255,255" range="25" IsOn="false">
+      <StatusEffect type="InWater" target="This" IsOn="true" stackable="false"></StatusEffect>
+      <StatusEffect type="NotInWater" target="This" IsOn="false" />
+      <StatusEffect type="InWater" target="This" delay="5.0" setvalue="true" condition="1.0" stackable="false" checkconditionalalways="true">
+        <!-- check the item is still in water after the delay has run out-->
+        <Conditional InWater="true" />
+        <Conditional condition="lte 1.0" />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+  <!-- EDIBLES GO HERE -->
+  <Item name="Europan Psilocybin Mushroom" identifier="pshroom" category="Material" Tags="edibles,smallitem" maxstacksize="8" canbepicked="true" description="A psychedelic mushroom used by cultists and clowns to enhance combat prowess. It smells like fungus." cargocontaineridentifier="chemicalcrate" scale="0.2" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5" />
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+    <Deconstruct time="10">
+      <Item identifier="dmt" copycondition="true" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Hydroponics/Materials/pshroomicon128px.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Hydroponics/Materials/pshroom.png" sourcerect="0,0,77,92" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="25" density="55" />
+    <RepairTool structurefixamount="0.0">
+      <StatusEffect type="OnUse" target="Character" duration="5" delay="60">
+        <!-- Meant to be eaten in one bite and provides a half bar of dmt high meant to be used with pill bottle-->
+        <Affliction identifier="dmtHigh" amount="0.5" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+        <!-- Not meant for a long loop but will serve on short eating sounds -->
+        <sound file="%ModDir%/Hydroponics/Sounds/crunch.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-150.0" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10"></Holdable>
+  </Item>
+  <Item name="Cannabis Gummy" identifier="weedbear" category="Material" Tags="edibles,smallitem" maxstacksize="8" canbepicked="true" description="An edible gummy bear fused with THC. It smells like fruit gummy." cargocontaineridentifier="chemicalcrate" scale="0.2" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5" />
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+    <Deconstruct time="10">
+      <Item identifier="thc" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="15" />
+      <RequiredItem identifier="thc" />
+      <RequiredItem identifier="elastin" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="15" />
+      <RequiredItem identifier="thc" />
+      <RequiredItem identifier="latex" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weededibleicon.png" sourcerect="0,0,120,120" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/weededible12px24.png" sourcerect="0,0,12,24" depth="0.55" origin="0.5,0.5" />
+    <Body width="12" height="24" density="55" />
+    <RepairTool structurefixamount="0.0">
+      <StatusEffect type="OnUse" target="Character" duration="5" delay="30">
+        <!-- Meant to be eaten in one bite and provides a half bar of dmt high meant to be used with pill bottle-->
+        <Affliction identifier="mjhigh" amount="0.3" />
+        <Affliction identifier="mjparalysis" amount="0.15" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+        <!-- Not meant for a long loop but will serve on short eating sounds -->
+        <sound file="%ModDir%/Hydroponics/Sounds/crunch.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-150.0" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10"></Holdable>
+  </Item>
+  <Item name="Cocaine Hydrochloride" identifier="cokesalt" category="Material" Tags="edibles,smallitem" maxstacksize="8" canbepicked="true" description="Cocaine in a clean white powder form, ready to be insufflated." cargocontaineridentifier="chemicalcrate" scale="0.2" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5" />
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+    <Deconstruct time="10">
+      <Item identifier="cocaine" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="45" />
+      <RequiredItem identifier="cocaleaf" />
+      <RequiredItem identifier="cocaleaf" />
+      <RequiredItem identifier="chlorine" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="cocaine" />
+      <RequiredItem identifier="chlorine" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cocainesalt120px.png" sourcerect="0,0,120,120" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/cocainesalt.png" sourcerect="0,0,25,25" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="25" density="55" />
+    <RepairTool structurefixamount="0.0">
+      <StatusEffect type="OnUse" target="Character" duration="5" delay="0">
+        <!-- Meant to be eaten in one bite and provides a half bar of dmt high meant to be used with pill bottle-->
+        <Affliction identifier="cokehigh" amount="0.5" />
+        <Affliction identifier="cokelow" amount="0.2" />
+        <Affliction identifier="cokeoverdose" amount="0.15" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+        <!-- Not meant for a long loop but will serve on short eating sounds -->
+        <sound file="%ModDir%/Hydroponics/Sounds/sniff.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-150.0" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="InWater" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="InWater" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10"></Holdable>
+  </Item>
+  <Item name="Cocaine Base" identifier="cokebase" category="Material" Tags="edibles,smallitem" maxstacksize="8" canbepicked="true" description="Cocaine in a compact rocklike form, ready to be smoked" cargocontaineridentifier="chemicalcrate" scale="0.2" impactsoundtag="impact_soft">
+    <PreferredContainer primary="medfabcab" minamount="2" maxamount="6" spawnprobability="1" />
+    <PreferredContainer primary="wreckmedcab" minamount="0" maxamount="1" spawnprobability="0.5" />
+    <!-- TODO: adjust prices -->
+    <Price locationtype="Research" buyprice="20" />
+    <Price locationtype="Military" buyprice="30" />
+    <Price locationtype="City" buyprice="30" />
+    <Price locationtype="Outpost" buyprice="30" />
+    <Price locationtype="Mine" buyprice="40" />
+    <Deconstruct time="10">
+      <Item identifier="cokesalt" copycondition="true" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
+      <RequiredSkill identifier="medical" level="55" />
+      <RequiredItem identifier="cokesalt" />
+      <RequiredItem identifier="sodium" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/cocainebase120px.png" sourcerect="0,0,120,120" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/cocainebase.png" sourcerect="0,0,25,25" depth="0.55" origin="0.5,0.5" />
+    <Body width="25" height="25" density="55" />
+    <RepairTool structurefixamount="0.0">
+      <StatusEffect type="OnUse" target="Character" duration="5" delay="0">
+        <!-- Meant to be eaten in one bite and provides a half bar of dmt high meant to be used with pill bottle-->
+        <Affliction identifier="cokehigh" amount="0.5" />
+        <Affliction identifier="cokelow" amount="0.2" />
+        <Affliction identifier="cokeoverdose" amount="0.15" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+        <!-- Not meant for a long loop but will serve on short eating sounds -->
+        <sound file="%ModDir%/Hydroponics/Sounds/sniff.ogg" type="OnUse" range="100" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-50.0" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,-10" handle1="0,-10" handle2="0,-10"></Holdable>
+  </Item>
+</Items>

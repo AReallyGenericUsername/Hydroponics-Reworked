@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- Debuffs -->
+  <Affliction name="High" identifier="mjHigh" description="Your breath stinks, but it's also a nice aroma. It feels like your are less in pain from burns and trauma." type="resistance" isbuff="true" causeofdeathdescription="You had too much weed." selfcauseofdeathdescription="Earth was nice, You smoked more weed than physically possible by real humans..." limbspecific="false" indicatorlimb="Head" activationthreshold="20" maxstrength="250">
+    <Effect minstrength="20" maxstrength="80" strengthchange="-0.3" minchromaticaberration="1.0" maxchromaticaberration="2.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.01" />
+        <ReduceAffliction identifier="burn" amount="0.01" />
+        <ReduceAffliction identifier="lacerations" amount="0.01" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.01" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.01" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"></StatusEffect>
+    </Effect>
+    <!-- ye buff -->
+    <Effect minstrength="80" maxstrength="120" strengthchange="-0.3" minchromaticaberration="1.0" maxchromaticaberration="3.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.02" />
+        <ReduceAffliction identifier="burn" amount="0.02" />
+        <ReduceAffliction identifier="lacerations" amount="0.02" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.02" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.02" />
+        <ReduceAffliction identifier="organdamage" amount="0.02" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true"></StatusEffect>
+    </Effect>
+    <Effect minstrength="120" maxstrength="180" strengthchange="-0.4" minchromaticaberration="1.0" maxchromaticaberration="4.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.02" />
+        <ReduceAffliction identifier="burn" amount="0.02" />
+        <ReduceAffliction identifier="lacerations" amount="0.02" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.02" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.02" />
+        <ReduceAffliction identifier="organdamage" amount="0.02" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"></StatusEffect>
+    </Effect>
+    <Effect minstrength="180" maxstrength="240" strengthchange="-0.4" minchromaticaberration="1.0" maxchromaticaberration="5.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.03" />
+        <ReduceAffliction identifier="burn" amount="0.03" />
+        <ReduceAffliction identifier="lacerations" amount="0.03" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.03" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.03" />
+        <ReduceAffliction identifier="organdamage" amount="0.03" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"></StatusEffect>
+    </Effect>
+    <!-- After Smoking enough -->
+    <Effect minstrength="240" maxstrength="250" strengthchange="-1" minchromaticaberration="1.0" maxchromaticaberration="5.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.1" />
+        <ReduceAffliction identifier="burn" amount="0.1" />
+        <ReduceAffliction identifier="lacerations" amount="0.1" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.1" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.1" />
+        <ReduceAffliction identifier="organdamage" amount="0.1" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Malborasek with Sound/Textures/marijuannaicon.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Spiced Up" identifier="spiceHigh" description="You don't know what you just smoked. You don't wanna know what you just smoked. You don't know how you feel, and you don't wanna know how you feel." type="resistance" isbuff="true" causeofdeathdescription="Probably shouldn't have smoked stuff he grew in the ballast." selfcauseofdeathdescription="You added a little spice to your life, and life got too spicy for you." limbspecific="false" indicatorlimb="Head" activationthreshold="20" maxstrength="240">
+    <Effect minstrength="20" maxstrength="80" strengthchange="-0.3" minchromaticaberration="1.0" maxchromaticaberration="2.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.01" />
+        <ReduceAffliction identifier="burn" amount="0.01" />
+        <ReduceAffliction identifier="lacerations" amount="0.01" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.01" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.01" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"></StatusEffect>
+    </Effect>
+    <Effect minstrength="80" maxstrength="120" strengthchange="-0.3" minchromaticaberration="1.0" maxchromaticaberration="3.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.015" />
+        <ReduceAffliction identifier="burn" amount="0.015" />
+        <ReduceAffliction identifier="lacerations" amount="0.015" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.015" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.015" />
+      </StatusEffect>
+      <ReduceAffliction identifier="organdamage" amount="0.015" />
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true"></StatusEffect>
+    </Effect>
+    <Effect minstrength="120" maxstrength="180" strengthchange="-0.4" minchromaticaberration="1.0" maxchromaticaberration="4.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.02" />
+        <ReduceAffliction identifier="burn" amount="0.02" />
+        <ReduceAffliction identifier="lacerations" amount="0.02" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.02" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.02" />
+        <ReduceAffliction identifier="organdamage" amount="0.02" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"></StatusEffect>
+    </Effect>
+    <Effect minstrength="180" maxstrength="240" strengthchange="-0.4" minchromaticaberration="1.0" maxchromaticaberration="5.0">
+      <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="blunttrauma" amount="0.025" />
+        <ReduceAffliction identifier="burn" amount="0.025" />
+        <ReduceAffliction identifier="lacerations" amount="0.025" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.025" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.025" />
+        <ReduceAffliction identifier="organdamage" amount="0.025" />
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"></StatusEffect>
+    </Effect>
+    <PeriodicEffect minstrength="20" maxstrength="120" mininterval="25" maxinterval="35">
+      <StatusEffect target="Character">
+        <Affliction identifier="nausea" amount="20" probability="0.15"></Affliction>
+      </StatusEffect>
+    </PeriodicEffect>
+    <PeriodicEffect minstrength="120" maxstrength="240" mininterval="25" maxinterval="35">
+      <StatusEffect target="Character">
+        <Affliction identifier="nausea" amount="20" probability="0.3"></Affliction>
+      </StatusEffect>
+    </PeriodicEffect>
+    <PeriodicEffect minstrength="100" maxstrength="240" mininterval="45" maxinterval="60">
+      <StatusEffect target="Character">
+        <Affliction identifier="incrementalstun" amount="93" probability="0.3"></Affliction>
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="%ModDir%/Malborasek with Sound/Textures/marijuannaicon.png" sourcerect="0,0,128,128" color="120,120,0,255" origin="0,0" />
+  </Affliction>
+  <!-- Buffs -->
+  <!-- <Affliction -->
+  <!-- name="Paralysis Resistance" -->
+  <!-- identifier="paralysisresistance" -->
+  <!-- description="" -->
+  <!-- type="resistance" -->
+  <!-- isbuff="true" -->
+  <!-- limbspecific="false" -->
+  <!-- karmachangeonapplied="0.04" -->
+  <!-- maxstrength="800"> -->
+  <!-- <Effect minstrength="0" maxstrength="800" -->
+  <!-- strengthchange="-5" -->
+  <!-- resistancefor="paralysis" -->
+  <!-- minresistance="1" -->
+  <!-- maxresistance="3"/> -->
+  <!-- <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,896,128,128" color="10,193,114,255" origin="0,0"/> -->
+  <!-- </Affliction> -->
+  <!-- <Affliction -->
+  <!-- name="Psychosis Resistance" -->
+  <!-- identifier="psychosisresistance" -->
+  <!-- description="Psychosis be gone." -->
+  <!-- type="resistance" -->
+  <!-- isbuff="true" -->
+  <!-- limbspecific="false" -->
+  <!-- maxstrength="600"> -->
+  <!-- <Effect minstrength="0" maxstrength="600" -->
+  <!-- strengthchange="-1" -->
+  <!-- resistancefor="psychosis" -->
+  <!-- minresistance="0" -->
+  <!-- maxresistance="0.75"/> -->
+  <!-- <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="640,896,128,128" color="10,193,114,255" origin="0,0"/> -->
+  <!-- </Affliction> -->
+</Afflictions>

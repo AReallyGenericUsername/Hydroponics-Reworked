@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <!-- Thinking on addiction and withdrawal -->
+  <!-- Nicotine Withdrawal should stun the user very briefly every couple of milestones -->
+  <!-- as a gameplay hinderance to not smoking and perhaps including psychosis to  -->
+  <!-- make players not want to quit -->
+  <Affliction name="Marijuana Paralysis" identifier="mjparalysis" type="resistance" description="Your vision is getting dull, why is my mouth so dry?" causeofdeathdescription="You had too much weed." selfcauseofdeathdescription="Earth was nice, You smoked more weed than physically possible by real humans..." limbspecific="false" indicatorlimb="Head" activationthreshold="20" maxstrength="241">
+    <!-- Slow the player down and paralyze in the end-->
+    <Effect minstrength="0" maxstrength="20" strengthchange="-0.4" minscreenblur="0.2" maxscreenblur="0.4">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.8" />
+    </Effect>
+    <Effect minstrength="20" maxstrength="60" strengthchange="-0.4" minscreenblur="0.3" maxscreenblur="0.5">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.7" />
+    </Effect>
+    <Effect minstrength="60" maxstrength="100" strengthchange="-0.4" minscreenblur="0.4" maxscreenblur="0.6">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.6" />
+    </Effect>
+    <Effect minstrength="100" maxstrength="140" strengthchange="-0.4" minscreenblur="0.5" maxscreenblur="0.7" minscreendistort="0.1" maxscreendistort="0.3">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.5" />
+    </Effect>
+    <Effect minstrength="140" maxstrength="160" strengthchange="-0.4" minscreenblur="0.6" maxscreenblur="0.8" minscreendistort="0.2" maxscreendistort="0.5">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.4" />
+    </Effect>
+    <Effect minstrength="160" maxstrength="180" strengthchange="-0.4" minscreenblur="0.7" maxscreenblur="0.9" minscreendistort="0.3" maxscreendistort="0.6">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.3" />
+    </Effect>
+    <Effect minstrength="180" maxstrength="200" strengthchange="-0.4" minscreenblur="0.8" maxscreenblur="1.0" minscreendistort="0.6" maxscreendistort="0.8">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.2" />
+    </Effect>
+    <Effect minstrength="200" maxstrength="220" strengthchange="-0.4" minscreenblur="0.8" maxscreenblur="1.0" minscreendistort="0.8" maxscreendistort="1.0">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.15" />
+    </Effect>
+    <Effect minstrength="220" maxstrength="240" strengthchange="-0.4" minscreenblur="0.8" maxscreenblur="1.0" minscreendistort="0.8" maxscreendistort="1.0">
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0.1" />
+    </Effect>
+    <Effect minstrength="240" maxstrength="241" strengthchange="-1" minscreenblur="0.8" maxscreenblur="1.0" minscreendistort="0.8" maxscreendistort="1.0">
+      <StatusEffect target="Character" setvalue="true">
+        <Affliction identifier="stun" amount="100" />
+        <ReduceAffliction identifier="damage" amount="5" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="5" />
+        <ReduceAffliction identifier="opiateaddiction" amount="5" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true" SpeedMultiplier="0" />
+    </Effect>
+    <icon texture="%ModDir%/Malborasek with Sound/Textures/marijuannaicondebuff.png" sourcerect="0,0,128,128" color="195,136,60,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Nicotine withdrawal" identifier="nicotinewithdrawal" description="Headache, agitation, anxiety and signs of nausea." type="poison" causeofdeathdescription="Died of nicotine withdrawal. I blame Neurotrauma!" selfcauseofdeathdescription="You have died of nicotine withdrawal." limbspecific="false" indicatorlimb="Torso" showiconthreshold="20" maxstrength="100">
+    <!-- General scale of withdrawal -->
+    <!-- 0-20: Nothing -->
+    <!-- 20-40: 0-20 health decrease and speed of 0.8 -->
+    <!-- Stuns should occur between 40-100 -->
+    <!-- 40-80: 20-40 health decrease and speed of 0.7 -->
+    <!-- 80-100:40-50 health decrease and speed of 0.5 -->
+    <!-- Slow down the character and slightly decrease vitality -->
+    <Effect minstrength="20" maxstrength="40" minvitalitydecrease="0" maxvitalitydecrease="20" strengthchange="-0.05" minchromaticaberration="0.0" maxchromaticaberration="1.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true" />
+    </Effect>
+    <!-- Decrease vitality more. The strength of the affliction drops faster, meaning that 
+    the character needs a stronger nicotine addiction for the withdrawal symptoms to stay at this level -->
+    <Effect minstrength="40" maxstrength="80" minvitalitydecrease="20" maxvitalitydecrease="40" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="1.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Effect>
+    <!-- Withdrawal symptoms start to get annoying at this level -->
+    <!-- minscreendistort="0.0" -->
+    <!-- maxscreendistort="1.0" -->
+    <!-- minradialdistort="0.0" -->
+    <!-- maxradialdistort="5.0" -->
+    <Effect minstrength="80" maxstrength="100" minvitalitydecrease="40" maxvitalitydecrease="50" strengthchange="-0.1" minchromaticaberration="3" maxchromaticaberration="5">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" color="195,136,60,255" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/nicotinewithdrawalicon120px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Nicotine overdose" identifier="nicotineoverdose" description="Pale skin, off-balance, slow and shallow breathing." type="poison" causeofdeathdescription="Died of nicotine overdose. Bruh moment." selfcauseofdeathdescription="You have died of nicotine overdose." limbspecific="false" indicatorlimb="Torso" showiconthreshold="20" karmachangeonapplied="-1" maxstrength="100">
+    <Effect minstrength="0" maxstrength="5" strengthchange="-0.1"></Effect>
+    <!-- No effects except slight distortion at this level -->
+    <Effect minstrength="5" maxstrength="50" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="1.0"></Effect>
+    <!-- Starts to become lethal when strength is above 50 -->
+    <Effect minstrength="50" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="180" minscreendistort="0.0" maxscreendistort="3.0" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="10.0" minradialdistort="0.0" maxradialdistort="10.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/nicotineodicon120px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <!-- Gradually applies the "nicotine withdrawal" affliction to the character -->
+  <!-- Addiction itself should not impact players when they smoke within the first tier. -->
+  <!-- Tiers should be counted per normal cigarette, more than one cig in a time should -->
+  <!-- always lead to maximum addiction tier. -->
+  <Affliction name="Nicotine addiction" identifier="nicotineaddiction" description="Stressed?!... Need... a smoke. Now!" type="resistance" limbspecific="false" indicatorlimb="Head" showiconthreshold="35" maxstrength="100" karmachangeonapplied="-0.01">
+    <Effect minstrength="0" maxstrength="35" strengthchange="-0.02" />
+    <Effect minstrength="35" maxstrength="50" strengthchange="-0.02">
+      <StatusEffect target="Character">
+        <Affliction identifier="nicotinewithdrawal" strength="0.15" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="80" strengthchange="-0.02">
+      <StatusEffect target="Character">
+        <Affliction identifier="nicotinewithdrawal" strength="0.15" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="80" maxstrength="100" strengthchange="-0.01">
+      <StatusEffect target="Character">
+        <Affliction identifier="nicotinewithdrawal" strength="0.3" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/nicotineicon120px.png" sourcerect="0,0,128,128" color="195,180,60,255" origin="0,0" />
+  </Affliction>
+  <!-- Coffee High -->
+  <Affliction name="Caffeinated" identifier="cfHigh" description="Gotta go FAST!" type="resistance" isbuff="true" causeofdeathdescription="You had too much coffee." selfcauseofdeathdescription="Died from Coffee overdose... How the fuck did you do that?" limbspecific="false" indicatorlimb="Torso" activationthreshold="20" maxstrength="121">
+    <Effect minstrength="20" maxstrength="40" strengthchange="-0.1">
+      <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true">
+        <ReduceAffliction identifier="paralysis" amount="1" />
+        <ReduceAffliction identifier="psychosis" amount="1" />
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="drunk" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <!-- ye buff -->
+    <Effect minstrength="40" maxstrength="80" strengthchange="-0.2">
+      <StatusEffect target="Character" SpeedMultiplier="1.3" setvalue="true">
+        <ReduceAffliction identifier="paralysis" amount="1" />
+        <ReduceAffliction identifier="psychosis" amount="1" />
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="drunk" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="80" maxstrength="99" strengthchange="-0.2">
+      <StatusEffect target="Character" SpeedMultiplier="1.4" setvalue="true">
+        <ReduceAffliction identifier="paralysis" amount="1" />
+        <ReduceAffliction identifier="psychosis" amount="1" />
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="drunk" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="99" maxstrength="120" strengthchange="-0.5">
+      <StatusEffect target="Character" SpeedMultiplier="1.45" setvalue="true">
+        <ReduceAffliction identifier="paralysis" amount="1" />
+        <ReduceAffliction identifier="psychosis" amount="1" />
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="drunk" amount="1" />
+      </StatusEffect>
+    </Effect>
+    <!-- After Drinking enough -->
+    <Effect minstrength="120" maxstrength="121" strengthchange="-0.5" minchromaticaberration="1.0" maxchromaticaberration="5.0">
+      <StatusEffect target="Character" SpeedMultiplier="1.45" setvalue="true">
+        <ReduceAffliction identifier="paralysis" amount="5" />
+        <ReduceAffliction identifier="psychosis" amount="5" />
+        <ReduceAffliction identifier="mjparalysis" amount="5" />
+        <ReduceAffliction identifier="drunk" amount="5" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/coffeeicon120px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Caffeine withdrawal" identifier="coffeewithdrawal" description="Headache, agitation, anxiety and signs of nausea." type="poison" causeofdeathdescription="Died of Caffeine withdrawal. Certified Neurotrauma moment." selfcauseofdeathdescription="You have died of Caffeine withdrawal. Blame neurotrauma." limbspecific="false" indicatorlimb="Torso" showiconthreshold="20" maxstrength="100">
+    <!-- General scale of withdrawal -->
+    <!-- 0-20: Nothing -->
+    <!-- 20-40: 0-20 health decrease and speed of 0.8 -->
+    <!-- Stuns should occur between 40-100 -->
+    <!-- 40-80: 20-40 health decrease and speed of 0.7 -->
+    <!-- 80-100:40-50 health decrease and speed of 0.5 -->
+    <!-- Slow down the character and slightly decrease vitality -->
+    <Effect minstrength="20" maxstrength="40" minvitalitydecrease="0" maxvitalitydecrease="10" strengthchange="-0.05" minchromaticaberration="0.0" maxchromaticaberration="1.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true" />
+    </Effect>
+    <!-- Decrease vitality more. The strength of the affliction drops faster, meaning that 
+    the character needs a stronger nicotine addiction for the withdrawal symptoms to stay at this level -->
+    <Effect minstrength="40" maxstrength="80" minvitalitydecrease="10" maxvitalitydecrease="20" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="1.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Effect>
+    <!-- Withdrawal symptoms start to get annoying at this level -->
+    <!-- minscreendistort="0.0" -->
+    <!-- maxscreendistort="1.0" -->
+    <!-- minradialdistort="0.0" -->
+    <!-- maxradialdistort="5.0" -->
+    <Effect minstrength="80" maxstrength="100" minvitalitydecrease="20" maxvitalitydecrease="25" strengthchange="-0.1" minchromaticaberration="3" maxchromaticaberration="5">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" color="195,136,60,255" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/sadicon120px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <Affliction name="Caffeine overdose" identifier="coffeeoverdose" description="Confusion, fast heartbeat, slow and shallow breathing." type="poison" causeofdeathdescription="Died of Caffeine overdose" selfcauseofdeathdescription="You have died of Caffeine overdose." limbspecific="false" indicatorlimb="Torso" showiconthreshold="20" karmachangeonapplied="-1" maxstrength="100">
+    <Effect minstrength="0" maxstrength="5" strengthchange="-0.1"></Effect>
+    <!-- No effects except slight distortion at this level -->
+    <Effect minstrength="5" maxstrength="50" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="1.0"></Effect>
+    <!-- Starts to become lethal when strength is above 50 -->
+    <Effect minstrength="50" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="155" minscreendistort="0.0" maxscreendistort="3.0" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="10.0" minradialdistort="0.0" maxradialdistort="10.0">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/caffeineicon120px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <!-- Gradually applies the "Coffee withdrawal" affliction to the character -->
+  <!-- Addiction itself should not impact players when they smoke within the first tier. -->
+  <!-- Tiers should be counted per normal cigarette, more than one cig in a time should -->
+  <!-- always lead to maximum addiction tier. -->
+  <Affliction name="Caffeine addiction" identifier="coffeeaddiction" description="Stressed?!... Need... a cup. Now!" type="poison" limbspecific="false" indicatorlimb="Torso" showiconthreshold="35" maxstrength="100" karmachangeonapplied="-0.1">
+    <Effect minstrength="0" maxstrength="35" strengthchange="-0.1" />
+    <Effect minstrength="35" maxstrength="50" strengthchange="-0.05">
+      <StatusEffect target="Character">
+        <Affliction identifier="coffeewithdrawal" strength="0.15" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="80" strengthchange="-0.05">
+      <StatusEffect target="Character">
+        <Affliction identifier="coffeewithdrawal" strength="0.15" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="80" maxstrength="100" strengthchange="-0.02">
+      <StatusEffect target="Character">
+        <Affliction identifier="coffeewithdrawal" strength="0.3" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/beansicon120px.png" sourcerect="0,0,128,128" color="195,180,60,255" origin="0,0" />
+  </Affliction>
+  <!-- DMT High -->
+  <Affliction name="DMT Trip" identifier="dmtHigh" description="The Joe Rogan Experience" type="resistance" isbuff="true" causeofdeathdescription="You had too much DMT." selfcauseofdeathdescription="Died from DMT overdose..." limbspecific="false" indicatorlimb="Head" activationthreshold="1" maxstrength="121">
+    <Effect minstrength="1" maxstrength="121" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="20.0" minscreendistort="0.0" maxscreendistort="0.0" minradialdistort="0.0" maxradialdistort="0.0" resistancefor="damage" minresistance="0" maxresistance="0.10">
+      <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true">
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="1" />
+        <ReduceAffliction identifier="nicotineaddiction" amount="1" />
+        <ReduceAffliction identifier="coffeewithdrawal" amount="1" />
+        <ReduceAffliction identifier="coffeeaddiction" amount="1" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="1" />
+        <ReduceAffliction identifier="opiateaddiction" amount="1" />
+        <ReduceAffliction identifier="drunk" amount="0.5" />
+      </StatusEffect>
+    </Effect>
+    <!-- <Effect minstrength="40" maxstrength="80" -->
+    <!-- strengthchange="-0.2" -->
+    <!-- minchromaticaberration="1.0" -->
+    <!-- maxchromaticaberration="2.0" -->
+    <!-- minscreendistort="1.0" -->
+    <!-- maxscreendistort="2.0" -->
+    <!-- minradialdistort="1.0" -->
+    <!-- maxradialdistort="2.0" -->
+    <!-- resistancefor="damage" -->
+    <!-- minresistance="0.5" -->
+    <!-- maxresistance="0.10"> -->
+    <!-- <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true"> -->
+    <!-- <ReduceAffliction identifier="mjparalysis" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotinewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotineaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeeaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiatewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiateaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="drunk" amount="0.5" /> -->
+    <!-- </StatusEffect> -->
+    <!-- </Effect> -->
+    <!-- <Effect minstrength="80" maxstrength="99" -->
+    <!-- strengthchange="-0.2" -->
+    <!-- minchromaticaberration="2.0" -->
+    <!-- maxchromaticaberration="3.0" -->
+    <!-- minscreendistort="2.0" -->
+    <!-- maxscreendistort="3.0" -->
+    <!-- minradialdistort="2.0" -->
+    <!-- maxradialdistort="3.0" -->
+    <!-- resistancefor="damage" -->
+    <!-- minresistance="0.5" -->
+    <!-- maxresistance="0.10"> -->
+    <!-- <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true"> -->
+    <!-- <ReduceAffliction identifier="mjparalysis" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotinewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotineaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeeaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiatewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiateaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="drunk" amount="0.5" /> -->
+    <!-- </StatusEffect> -->
+    <!-- </Effect> -->
+    <!-- <Effect minstrength="99" maxstrength="120" -->
+    <!-- strengthchange="-0.5" -->
+    <!-- minchromaticaberration="3.0" -->
+    <!-- maxchromaticaberration="4.0" -->
+    <!-- minscreendistort="3.0" -->
+    <!-- maxscreendistort="4.0" -->
+    <!-- minradialdistort="3.0" -->
+    <!-- maxradialdistort="4.0" -->
+    <!-- resistancefor="damage" -->
+    <!-- minresistance="0.5" -->
+    <!-- maxresistance="0.10"> -->
+    <!-- <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true"> -->
+    <!-- <ReduceAffliction identifier="mjparalysis" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotinewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="nicotineaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="coffeeaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiatewithdrawal" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="opiateaddiction" amount="1" /> -->
+    <!-- <ReduceAffliction identifier="drunk" amount="0.5" /> -->
+    <!-- </StatusEffect> -->
+    <!-- </Effect> -->
+    <!-- <Effect minstrength="120" maxstrength="121" -->
+    <!-- strengthchange="-0.5" -->
+    <!-- minchromaticaberration="4.0" -->
+    <!-- maxchromaticaberration="5.0" -->
+    <!-- minscreendistort="4.0" -->
+    <!-- maxscreendistort="5.0" -->
+    <!-- minradialdistort="4.0" -->
+    <!-- maxradialdistort="5.0" -->
+    <!-- resistancefor="damage" -->
+    <!-- minresistance="0.5" -->
+    <!-- maxresistance="0.10"> -->
+    <!-- <StatusEffect target="Character" SpeedMultiplier="1.2" setvalue="true"> -->
+    <!-- <ReduceAffliction identifier="mjparalysis" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="nicotinewithdrawal" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="nicotineaddiction" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="coffeewithdrawal" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="coffeeaddiction" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="opiatewithdrawal" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="opiateaddiction" amount="5" /> -->
+    <!-- <ReduceAffliction identifier="drunk" amount="5" /> -->
+    <!-- </StatusEffect> -->
+    <!-- </Effect> -->
+    <icon texture="%ModDir%/Hydroponics/Icons/dmticon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!-- Coke High -->
+  <Affliction name="Coke High" identifier="cokeHigh" description="Pupils dilated. You're stronger and less fearful of the things around you. It feels like time is moving slower, or you moving faster." type="resistance" isbuff="true" limbspecific="false" indicatorlimb="Torso" activationthreshold="1" maxstrength="121">
+    <Effect minstrength="1" maxstrength="121" strengthchange="-0.5" minchromaticaberration="0.0" maxchromaticaberration="20.0" minscreendistort="0.0" maxscreendistort="0.0" minradialdistort="0.0" maxradialdistort="0.0" resistancefor="damage" minresistance="0.3" maxresistance="0.5">
+      <StatusEffect target="Character" setvalue="true" interval="1" disabledeltatime="true">
+        <ReduceAffliction identifier="mjparalysis" amount="1" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="1" />
+        <ReduceAffliction identifier="nicotineaddiction" amount="0.1" />
+        <ReduceAffliction identifier="coffeewithdrawal" amount="1" />
+        <ReduceAffliction identifier="coffeeaddiction" amount="0.2" />
+        <ReduceAffliction identifier="opiatewithdrawal" amount="0.1" />
+        <ReduceAffliction identifier="opiateaddiction" amount="0.1" />
+        <ReduceAffliction identifier="drunk" amount="1" />
+        <ReduceAffliction identifier="paralysis" amount="2" />
+        <Affliction identifier="cokelow" strength="0.43"></Affliction>
+      </StatusEffect>
+      <StatusEffect target="Character" SpeedMultiplier="1.4" setvalue="true">
+        <Affliction identifier="strengthen" amount="500" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/brainicon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--Coke OD-->
+  <Affliction name="Cocaine Overdose" identifier="cokeoverdose" description="You are experiencing tremors, and over stimulated senses." type="poison" causeofdeathdescription="Died of Cocaine overdose" selfcauseofdeathdescription="You have died of Cocaine overdose." limbspecific="false" indicatorlimb="Torso" showiconthreshold="70" maxstrength="100">
+    <Effect minstrength="0" maxstrength="19" strengthchange="-0.1"></Effect>
+    <!-- No effects except slight distortion at this level -->
+    <Effect minstrength="19" maxstrength="25" strengthchange="-0.1" minchromaticaberration="0.0" maxchromaticaberration="1.0"></Effect>
+    <!-- Starts to become lethal when strength is above 70 -->
+    <Effect minstrength="25" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="190" minscreendistort="0.0" maxscreendistort="3.0" strengthchange="-0.25" minchromaticaberration="0.0" maxchromaticaberration="10.0" minradialdistort="0.0" maxradialdistort="10.0">
+      <StatusEffect target="Character" SpeedMultiplier="2" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/brainicon128px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <!--Coke Withdrawal-->
+  <Affliction name="Low Dopamine" identifier="cokelow" description="You are experiencing depression, sadness, low neural and motor functions." type="poison" causeofdeathdescription="Died of Cocaine overdose" selfcauseofdeathdescription="You have died of Cocaine overdose." limbspecific="false" indicatorlimb="Torso" showiconthreshold="50" maxstrength="100">
+    <Effect minstrength="0" maxstrength="25" strengthchange="-0.1"></Effect>
+    <!-- No effects except slight distortion at this level -->
+    <Effect minstrength="25" maxstrength="50" minvitalitydecrease="0" maxvitalitydecrease="10" strengthchange="-0.1">
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Effect>
+    <!-- Starts to become lethal when strength is above 50 -->
+    <Effect minstrength="50" maxstrength="100" minvitalitydecrease="0" maxvitalitydecrease="70" strengthchange="-0.1">
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true" />
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/brainspliticon128px.png" sourcerect="0,0,128,128" color="209,121,84,255" origin="0,0" />
+  </Affliction>
+  <!--Jenkem High-->
+  <Affliction name="Goin Down to Brown Town" identifier="jenk" description="The Joe Exotic Experience" type="resistance" isbuff="true" causeofdeathdescription="Sampled the aroma of the gods." selfcauseofdeathdescription="You smoked shit and died" limbspecific="false" indicatorlimb="Head" activationthreshold="1" maxstrength="120">
+    <!--Tier 1 just visual-->
+    <Effect minstrength="0" maxstrength="15" strengthchange="-0.2" minscreendistort="2.0" maxscreendistort="3.0" minradialdistort="1.5" maxradialdistort="2.5" minchromaticaberration="5.0" maxchromaticaberration="7" minvitalitydecrease="0" maxvitalitydecrease="2"></Effect>
+    <!--Tier 2 minor effects, periodic nausea and damage-->
+    <Effect minstrength="15" maxstrength="60" strengthchange="-0.3" minchromaticaberration="7.0" maxchromaticaberration="10.0" minscreendistort="2.5" maxscreendistort="3.5" minradialdistort="2.0" maxradialdistort="2.8" resistancefor="damage" minresistance="0.1" maxresistance="0.2" minvitalitydecrease="0" maxvitalitydecrease="3">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="0.3" />
+        <Affliction identifier="strengthen" amount="1.2" />
+        <ReduceAffliction identifier="invertcontrols" amount="2.5" />
+      </StatusEffect>
+    </Effect>
+    <!--Tier 3 starts getting funky, same as 2 plus periodic confusion-->
+    <Effect minstrength="60" maxstrength="100" strengthchange="-0.25" minchromaticaberration="12.0" maxchromaticaberration="16.0" minscreendistort="3.0" maxscreendistort="4.0" minradialdistort="2.8" maxradialdistort="3.5" resistancefor="damage" minresistance="0.1" maxresistance="0.3" minvitalitydecrease="0" maxvitalitydecrease="4">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="0.5" />
+        <Affliction identifier="strengthen" amount="1.5" />
+        <Affliction identifier="pressureresistance" amount="2" />
+        <Affliction identifier="paralysisresistance" amount="2" />
+        <ReduceAffliction identifier="haste" amount="20" />
+        <ReduceAffliction identifier="invertcontrols" amount="2.5" />
+        <StatusEffect target="Character" SpeedMultiplier="1.1" setvalue="true"></StatusEffect>
+      </StatusEffect>
+    </Effect>
+    <!--Tier 4 same as tier 3 but with OD ticking up-->
+    <Effect minstrength="100" maxstrength="120" strengthchange="-0.25" minchromaticaberration="12.0" maxchromaticaberration="20.0" minscreendistort="3.0" maxscreendistort="5.0" minradialdistort="2.8" maxradialdistort="3.5" resistancefor="damage" minresistance="0.1" maxresistance="0.3" minvitalitydecrease="0" maxvitalitydecrease="4">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="0.5" />
+        <Affliction identifier="strengthen" amount="1.5" />
+        <Affliction identifier="pressureresistance" amount="2"></Affliction>
+        <Affliction identifier="paralysisresistance" amount="2" />
+        <ReduceAffliction identifier="invertcontrols" amount="2.5" />
+        <ReduceAffliction identifier="haste" amount="20" />
+        <Affliction identifier="jenkodlogic" amount="0.1" />
+      </StatusEffect>
+    </Effect>
+    <!--Tier 2 periodic nausea-->
+    <PeriodicEffect minstrength="15" maxstrength="60" mininterval="40" maxinterval="60">
+      <StatusEffect target="Character">
+        <Affliction identifier="nausea" amount="30" />
+      </StatusEffect>
+      <StatusEffect target="Character">
+        <Affliction identifier="organdamage" amount="1" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <!--Tier 3 and 4 periodic nausea-->
+    <PeriodicEffect minstrength="60" maxstrength="120" mininterval="30" maxinterval="45">
+      <StatusEffect target="Character">
+        <Affliction identifier="nausea" amount="30" />
+        <Affliction identifier="organdamage" amount="4" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <!--Tier 3 and 4 periodic confusion-->
+    <PeriodicEffect minstrength="60" maxstrength="100" mininterval="30" maxinterval="60">
+      <StatusEffect target="Character">
+        <Affliction identifier="invertcontrols" amount="75" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <!--Tier 3 and 4 periodic haste-->
+    <PeriodicEffect minstrength="60" maxstrength="120" mininterval="15" maxinterval="25">
+      <StatusEffect target="Character">
+        <Affliction identifier="haste" amount="300" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <!--Unpredicatble OD effect-->
+    <PeriodicEffect minstrength="60" maxstrength="120" mininterval="30" maxinterval="120">
+      <StatusEffect target="Character">
+        <Affliction identifier="jenkodlogic" amount="2" />
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="%ModDir%/Hydroponics/Icons/poopicon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--Jenkem OD Logic - Kicks off the OD after threshold reached-->
+  <Affliction name="OH SHIT, LITERALLY" identifier="jenkodlogic" description="You asked for this" type="resistance" isbuff="true" causeofdeathdescription="Decided to leave his body and feast with the gods in the great brown halls!" selfcauseofdeathdescription="YOU HAVE ACHIEVED SOFT-SERVANA" limbspecific="false" indicatorlimb="Head" showiconthreshold="15" activationthreshold="10" maxstrength="15">
+    <Effect minstrength="1" maxstrength="10" strengthchange="-0.01"></Effect>
+    <Effect minstrength="10" maxstrength="15" strengthchange="-0.01">
+      <StatusEffect target="Character">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/jscream.ogg" range="800" volume="100" loop="false" />
+      </StatusEffect>
+      <StatusEffect target="Character" setvalue="true">
+        <Affliction identifier="jenkod" amount="120" />
+        <ReduceAffliction identifier="jenkodlogic" amount="5" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/dmticon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--Jenkem OD-->
+  <Affliction name="Currently Communicating with Lizard People" identifier="jenkod" description="Welcome to the inner circle, Aristocrat!" type="resistance" isbuff="true" causeofdeathdescription="Decided to leave their body and feast with the gods in the receptacle of eternity." selfcauseofdeathdescription="YOU HAVE ACHIEVED SOFT-SERVANA" limbspecific="false" indicatorlimb="Head" activationthreshold="1" maxstrength="120">
+    <Effect minstrength="1" maxstrength="120" strengthchange="-1" minchromaticaberration="12.0" maxchromaticaberration="20.0" minscreendistort="3.5" maxscreendistort="6.0" minradialdistort="2.5" maxradialdistort="5.5" resistancefor="damage" minresistance="0.2" maxresistance="0.99" minvitalitydecrease="0" maxvitalitydecrease="1">
+      <StatusEffect target="Character" SpeedMultiplier="1.4" setvalue="true">
+        <Affliction identifier="strengthen" amount="600" />
+      </StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="100" />
+        <Affliction identifier="strengthen" amount="2" />
+        <Affliction identifier="pressureresistance" amount="2"></Affliction>
+        <Affliction identifier="paralysisresistance" amount="2" />
+        <ReduceAffliction identifier="invertcontrols" amount="2.5" />
+        <Affliction identifier="haste" amount="2" />
+        <Affliction identifier="organdamage" amount="0.5" />
+      </StatusEffect>
+    </Effect>
+    <PeriodicEffect minstrength="1" maxstrength="120" mininterval="12" maxinterval="28">
+      <StatusEffect target="Character">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/browntown.ogg" range="400" volume="150" loop="false" />
+        <Affliction identifier="incrementalstun" amount="96"></Affliction>
+      </StatusEffect>
+    </PeriodicEffect>
+    <icon texture="%ModDir%/Hydroponics/Icons/dmticon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+  <!--Paint High-->
+  <Affliction name="Huffed Paint" identifier="painthigh" description="A man with a can and a plan" type="resistance" isbuff="true" causeofdeathdescription="Painted the inside of their lungs with Sub Depot's spring collection." selfcauseofdeathdescription="Your lungs needed less of an undercoat" limbspecific="false" indicatorlimb="Head" activationthreshold="5" maxstrength="120" showiconthreshold="5">
+    <Effect minstrength="5" maxstrength="15" strengthchange="-0.25" minscreendistort="0.2" maxscreendistort="0.4" minchromaticaberration="1.0" maxchromaticaberration="1.5" minvitalitydecrease="0" maxvitalitydecrease="1">
+      <StatusEffect target="Character" SpeedMultiplier="0.9" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="hallucinating" amount="1.1" />
+        <Affliction identifier="heartdamage" amount="0.02" />
+        <Affliction identifier="lungdamage" amount="0.04" />
+        <Affliction identifier="kidneydamage" amount="0.02" />
+        <Affliction identifier="strengthen" amount="4" />
+        <ReduceAffliction identifier="stun" amount="0.2" />
+        <ReduceAffliction identifier="huskinfection" amount="0.01" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="15" maxstrength="30" strengthchange="-0.25" minscreendistort="0.5" maxscreendistort="0.6" minchromaticaberration="1.0" maxchromaticaberration="1.8" minvitalitydecrease="0" maxvitalitydecrease="2" minradialdistort="0.4" maxradialdistort="0.6">
+      <StatusEffect target="Character" SpeedMultiplier="0.9" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="organdamage" amount="0.03" />
+        <Affliction identifier="hallucinating" amount="1.5" />
+        <Affliction identifier="heartdamage" amount="0.04" />
+        <Affliction identifier="lungdamage" amount="0.06" />
+        <Affliction identifier="kidneydamage" amount="0.04" />
+        <Affliction identifier="strengthen" amount="5" />
+        <ReduceAffliction identifier="huskinfection" amount="0.01" />
+        <ReduceAffliction identifier="stun" amount="0.35" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="30" maxstrength="60" strengthchange="-0.25" minchromaticaberration="2.0" maxchromaticaberration="3.0" minscreendistort="0.5" maxscreendistort="1.0" minradialdistort="0.5" maxradialdistort="0.8" resistancefor="damage" minresistance="0.2" maxresistance="0.5" minvitalitydecrease="0" maxvitalitydecrease="5">
+      <StatusEffect target="Character" SpeedMultiplier="0.8" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="0.3" />
+        <Affliction identifier="hallucinating" amount="1.8" />
+        <Affliction identifier="heartdamage" amount="0.07" />
+        <Affliction identifier="lungdamage" amount="0.1" />
+        <Affliction identifier="kidneydamage" amount="0.07" />
+        <Affliction identifier="strengthen" amount="6" />
+        <Affliction identifier="organdamage" amount="0.05" />
+        <ReduceAffliction identifier="huskinfection" amount="0.02" />
+        <ReduceAffliction identifier="stun" amount="0.55" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="60" maxstrength="100" strengthchange="-0.25" minchromaticaberration="2.0" maxchromaticaberration="3.2" minscreendistort="0.6" maxscreendistort="1.2" minradialdistort="0.6" maxradialdistort="0.8" resistancefor="damage" minresistance="0.4" maxresistance="0.8" minvitalitydecrease="0" maxvitalitydecrease="5">
+      <StatusEffect target="Character" SpeedMultiplier="0.7" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="0.5" />
+        <Affliction identifier="hallucinating" amount="2" />
+        <Affliction identifier="heartdamage" amount="0.08" />
+        <Affliction identifier="lungdamage" amount="0.13" />
+        <Affliction identifier="kidneydamage" amount="0.08" />
+        <Affliction identifier="strengthen" amount="8" />
+        <Affliction identifier="organdamage" amount="0.08" />
+        <ReduceAffliction identifier="huskinfection" amount="0.025" />
+        <ReduceAffliction identifier="stun" amount="0.75" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="100" maxstrength="120" strengthchange="-0.25" minchromaticaberration="2.2" maxchromaticaberration="3.5" minscreendistort="0.6" maxscreendistort="1.5" minradialdistort="0.6" maxradialdistort="0.9" resistancefor="damage" minresistance="0.4" maxresistance="0.8" minvitalitydecrease="0" maxvitalitydecrease="4">
+      <StatusEffect target="Character" SpeedMultiplier="0.5" setvalue="true"></StatusEffect>
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="psychosis" amount="2" />
+        <Affliction identifier="hallucinating" amount="2" />
+        <Affliction identifier="heartdamage" amount="0.1" />
+        <Affliction identifier="lungdamage" amount="0.18" />
+        <Affliction identifier="kidneydamage" amount="0.1" />
+        <Affliction identifier="strengthen" amount="10" />
+        <Affliction identifier="organdamage" amount="0.12" />
+        <ReduceAffliction identifier="huskinfection" amount="0.3" />
+        <ReduceAffliction identifier="stun" amount="0.90" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Hydroponics/Icons/painticon128px.png" sourcerect="0,0,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

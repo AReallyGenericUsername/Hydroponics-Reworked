@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Override>
+    <Item name="Captain's Crack Pipe" description="For calming the nerves when the sea is stormy." identifier="captainspipe" category="Misc" Tags="smallitem" scale="0.5" impactsoundtag="impact_metal_light" isshootable="true">
+      <PreferredContainer primary="crewcab" spawnprobability="0.01" />
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="511,957,64,64" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Hydroponics/Misc/Misc.png" sourcerect="105,73,50,30" depth="0.55" origin="0.5,0.5" />
+      <Body width="58" height="20" density="55" />
+      <RepairTool structurefixamount="0.0">
+        <StatusEffect type="OnUse" targettype="Contained" targets="cokebase" Condition="-25"></StatusEffect>
+        <!-- <StatusEffect type="OnUse" targettype="Contained" targets="cokesalt" Condition="-200"> -->
+        <!-- </StatusEffect> -->
+        <StatusEffect type="OnUse" target="Character" duration="5" delay="0">
+          <!-- Meant to be eaten in one bite and provides a half bar of dmt high meant to be used with pill bottle-->
+          <Affliction identifier="cokehigh" amount="0.5" />
+          <Affliction identifier="cokelow" amount="0.2" />
+          <Affliction identifier="cokeoverdose" amount="0.15" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This">
+          <ParticleEmitter particle="swirlysmoke" particlespersecond="3" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+        </StatusEffect>
+        <!-- <ParticleEmitter particle="cigsmoke" particlespersecond="5" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" /> -->
+        <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="0" IsOn="false" CastShadows="false">
+          <!-- Not meant for a long loop but will serve on short eating sounds -->
+          <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+          <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+          <StatusEffect type="OnFire" target="This">
+            <Remove />
+          </StatusEffect>
+          <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
+          <StatusEffect type="OnBroken" target="This">
+            <Remove />
+          </StatusEffect>
+          <RequiredItems items="cokebase" type="Contained" msg="Cocaine Base Needed" />
+        </LightComponent>
+        <RequiredItems items="cokebase" type="Contained" msg="Cocaine Base Needed" />
+      </RepairTool>
+      <ItemContainer capacity="1" hideitems="false" itempos="18,0" containedspritedepth="0.56">
+        <ContainedStateIndicator texture="Content/UI/ContainerIndicators.png" sourcerect="0,157,92,27" />
+        <Containable items="cokebase" />
+      </ItemContainer>
+      <Holdable slots="Any,RightHand" aimable="false" aimpos="35,20" handle1="15,0" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect"></Holdable>
+    </Item>
+    <Item name="Glass Bong" description="For Tobacco use only ;)" identifier="drugpipe" category="Misc" Tags="smallitem" scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" isshootable="true" requireaimtouse="true">
+      <PreferredContainer primary="crewcab" spawnprobability="0" />
+      <PreferredContainer primary="abandonedcrewcab" spawnprobability="0" />
+      <PreferredContainer secondary="locker" />
+      <Price baseprice="70">
+        <Price storeidentifier="merchantoutpost" />
+        <Price storeidentifier="merchantcity" />
+        <Price storeidentifier="merchantresearch" />
+        <Price storeidentifier="merchantmilitary" />
+        <Price storeidentifier="merchantmine" />
+      </Price>
+      <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weapons_itemtest.png" sourcerect="305,258,75,102" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Malborasek with Sound/Textures/weapons_itemtest.png" sourcerect="305,258,75,102" depth="0.55" origin="0.5,0.5" />
+      <Body width="58" height="50" density="12" />
+      <Holdable slots="Any,RightHand" aimable="false" aimpos="12,-12" handle1="-2,-7" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This">
+          <ParticleEmitter particle="swirlysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+          <RequiredItem items="pipetobacco,cannabisfiber,opium,tobaccoleaf,weedbud" type="Contained" />
+        </StatusEffect>
+        <StatusEffect>
+          <ParticleEmitter particle="bluntfog" particlespersecond="0.4" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
+          <RequiredItem items="weedbud,tobaccoleaf" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This">
+          <ParticleEmitter particle="heavysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" />
+          <RequiredItem items="poop" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-4.0" disabledeltatime="false">
+          <RequiredItem items="pipetobacco,cannabisfiber,opium,tobaccoleaf,weedbud" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-4.0" disabledeltatime="false">
+          <RequiredItem items="poop" type="Contained" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="Character">
+          <Affliction identifier="mjhigh" amount="0.5" />
+          <ReduceAffliction type="damage" amount="0.08" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="hallucinating" amount="2" />
+          <Affliction identifier="oxygenlow" amount="0.4" />
+          <RequiredItem items="cannabisfiber" type="Contained" />
+        </StatusEffect>
+        <StatusEffect tags="medical" type="OnUse" target="Character">
+          <ReduceAffliction type="damage" amount="0.9" />
+          <ReduceAffliction type="burn" amount="0.25" />
+          <Affliction identifier="oxygenlow" amount="0.4" />
+          <Affliction identifier="opiateaddiction" amount="0.5" />
+          <Affliction identifier="opiateoverdose" amount="0.35" />
+          <ReduceAffliction identifier="opiatewithdrawal" amount="0.9" />
+          <RequiredItem items="opium" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This">
+          <Affliction identifier="psychosisresistance" amount="15" />
+          <ReduceAffliction identifier="psychosis" amount="5" />
+          <ReduceAffliction identifier="hallucinating" amount="10" />
+          <Affliction identifier="oxygenlow" amount="0.4" />
+          <RequiredItem items="pipetobacco" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" duration="2">
+          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+            <ReduceAffliction identifier="nicotinewithdrawal" amount="2.0" />
+            <Affliction identifier="nicotineaddiction" amount="0.005" />
+            <Affliction identifier="strengthen" amount="0.35" />
+          </Explosion>
+          <RequiredItem items="tobaccoleaf" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" duration="2">
+          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+            <Affliction identifier="mjhigh" amount="0.15" />
+            <Affliction identifier="mjparalysis" amount="0.12" />
+          </Explosion>
+          <RequiredItem items="weedbud" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This">
+          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+            <Affliction identifier="jenk" amount="0.6"></Affliction>
+          </Explosion>
+          <RequiredItem items="poop" type="Contained" />
+        </StatusEffect>
+        <RepairTool structurefixamount="0.0" usablein="Air">
+          <StatusEffect type="OnFailure" target="UseTarget"></StatusEffect>
+          <sound file="%ModDir%/Malborasek with Sound/Sounds/bongrip.ogg" type="OnUse" range="200" loop="true" />
+          <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="50" CastShadows="false"></LightComponent>
+          <RequiredItems items="pipetobacco,cannabisfiber,opium,tobaccoleaf,weedbud,poop" type="Contained" />
+        </RepairTool>
+      </Holdable>
+      <ItemContainer hideitems="true" drawinventory="true" capacity="1" maxstacksize="1" slotsperrow="6" itempos="74,-281" iteminterval="0,0" itemrotation="0" canbeselected="false" containedspritedepth="0.79">
+        <Containable items="pipetobacco,cannabisfiber,opium,tobaccoleaf,weedbud,poop" />
+      </ItemContainer>
+    </Item>
+    <Item name="Plastic Bag" identifier="baropplasticbag" scale="0.5" category="Misc" Tags="mediumitem,mobilecontainer,hydro-incubator" cargocontaineridentifier="metalcrate" description="A simple plastic bag, get creative." impactsoundtag="impact_metal_light" isshootable="true" requireaimtouse="true">
+      <Price baseprice="30">
+        <Price locationtype="outpost" multiplier="0.9" minavailable="2" />
+        <Price locationtype="city" multiplier="0.85" minavailable="4" />
+        <Price locationtype="research" multiplier="1" minavailable="3" />
+        <Price locationtype="military" multiplier="1" minavailable="2" />
+        <Price locationtype="mine" multiplier="1.25" minavailable="1" />
+      </Price>
+      <PreferredContainer primary="storagecab" minamount="0" maxamount="2" spawnprobability="0.2" />
+      <PreferredContainer primary="wreckstoragecab" minamount="0" maxamount="5" spawnprobability="0.7" />
+      <Deconstruct time="5">
+        <Item identifier="plastic" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="10">
+        <RequiredItem identifier="plastic" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weapons_itemtest4.png" sourcerect="7,326,60,67" origin="0.5,0.5" />
+      <Sprite name="Plastic Bag" texture="%ModDir%/Malborasek with Sound/Textures/weapons_itemtest4.png" sourcerect="7,326,60,67" origin="0.5,0.5" />
+      <Body width="40" height="35" density="15" />
+      <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect" displaycontainedstatus="true">
+        <sprite name="Plastic Bag Wearable" texture="weapons_itemtest4.png" limb="Head" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.55" hidelimb="false" hideotherwearables="false" sourcerect="0,194,126,125" origin="0.6,0.5" />
+        <StatusEffect type="OnWearing" target="Character" HideFace="false" setvalue="true" disabledeltatime="true" />
+        <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" Oxygen="-5.0">
+          <Conditional IsDead="false" />
+        </StatusEffect>
+      </Wearable>
+      <ItemContainer capacity="1" maxstacksize="12" hideitems="true">
+        <Containable items="smallitem" excludeditems="toolbelt,toolbox,bandolier,duffel2,duffel,allbag,baropplasticbag" />
+      </ItemContainer>
+      <Holdable slots="Any,RightHand" aimable="true" aimpos="15,18" controlpose="true" handle1="10,0" swingamount="0,0" swingspeed="0.5" swingwhenusing="false" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This">
+          <RequiredItems items="paint" type="Contained" />
+          <Explosion range="2.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
+            <Affliction identifier="painthigh" amount="0.25"></Affliction>
+          </Explosion>
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-3">
+          <RequiredItem items="paint" type="Contained" />
+        </StatusEffect>
+        <PaintColors>
+          <PaintColor paintitem="redpaint" color="128,0,0,180" />
+          <PaintColor paintitem="greenpaint" color="0,128,0,180" />
+          <PaintColor paintitem="bluepaint" color="0,0,128,180" />
+          <PaintColor paintitem="blackpaint" color="0,0,0,180" />
+          <PaintColor paintitem="whitepaint" color="128,128,128,180" />
+        </PaintColors>
+      </Holdable>
+      <Sprayer barrelpos="-5,0" spread="0" unskilledspread="0" drawhudwhenequipped="false" crosshairscale="0.0" spraystrength="0.0" range="0">
+        <ParticleEmitter particle="spray" velocitymin="0.0" velocitymax="5.0" particlespersecond="5" />
+        <RequiredItems items="paint" type="Contained" />
+        <sound file="Content/Items/Tools/Sprayer.ogg" type="OnUse" range="500.0" loop="true" />
+        <!--When containing paint, reduce its condition by 1.5 when used-->
+        <StatusEffect type="OnUse" target="Contained" Condition="-1.5">
+          <RequiredItem items="paint" type="Contained" />
+        </StatusEffect>
+        <!--Reduce ethanol condition slower than paint-->
+        <PaintColors>
+          <PaintColor paintitem="ethanol" color="200,200,200,0" />
+          <PaintColor paintitem="redpaint" color="128,0,0,180" />
+          <PaintColor paintitem="greenpaint" color="0,128,0,180" />
+          <PaintColor paintitem="bluepaint" color="0,0,128,180" />
+          <PaintColor paintitem="blackpaint" color="0,0,0,180" />
+          <PaintColor paintitem="whitepaint" color="128,128,128,180" />
+        </PaintColors>
+      </Sprayer>
+      <LightComponent lightcolor="0,0,0,0" range="0" powerconsumption="0" IsOn="true" castshadows="false">
+        <StatusEffect type="OnActive" target="Contained" condition="0.05">
+          <RequiredItems identifier="ballastspice" type="Contained" />
+          <Conditional condition="gte 1.0" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" ison="true">
+          <Conditional hastag="human" targetcontainer="true" />
+        </StatusEffect>
+      </LightComponent>
+    </Item>
+    <Item name="" identifier="poop" nameidentifier="poop" Tags="smallitem,loadable,mobilebattery" maxstacksize="8" hideinmenus="true" health="50" damagedbyexplosions="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" damagedbyrepairtools="true" category="Misc" scale="0.5" impactsoundtag="impact_soft" impacttolerance="6">
+      <Sprite texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="387,15,53,41" origin="0.5,0.5" />
+      <InventoryIcon texture="Content/Characters/Pets/pets.png" depth="0.7" sourcerect="387,15,53,41" origin="0.5,0.5" />
+      <ContainedSprite texture="%ModDir%/Malborasek with Sound/Textures/bottleicons1.png" allowedcontainertags="poopcontainer" usewhenattached="true" depth="0.055" sourcerect="15,132,23,59" origin="0.5,0.5" itempos="0,0" />
+      <Deconstruct time="10">
+        <Item identifier="carbon" />
+      </Deconstruct>
+      <!-- rectangular body to prevent the poop from rolling -->
+      <Body width="53" height="41" density="8" />
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true" />
+        <StatusEffect type="OnFire" target="This" Condition="-50.0" />
+        <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" shockwave="false" decal="fruitsplatter_brown" decalsize="1.0" />
+          <ParticleEmitter particle="whitegoosplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" colormultiplier="185,122,87,255" />
+          <Sound file="Content/Sounds/Damage/Gore6.ogg" range="800" />
+          <Remove />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+  </Override>
+</Items>
