@@ -24,6 +24,11 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.2">
+        <Affliction identifier="nicotineaddiction" amount="0.01" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="0.35" />
+        <Affliction identifier="strengthen" amount="0.25" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -38,7 +43,7 @@
         <!-- Normal cigs are 100/50 = -2 Condition -->
         <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
         <!-- Cigars Sould be double that of 100s at least -->
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-0.5">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2">
           <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
@@ -54,13 +59,6 @@
       </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,25" handle1="-5,0" handle2="-5,0">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="nicotineaddiction" amount="0.001" />
-          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
-          <Affliction identifier="strengthen" amount="0.25" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </FineZubanCigar>
   <CigarRollie name="Rolled Cigar" identifier="cigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Tobacco Cigar, It smells like fresh Europan tobacco." cargocontaineridentifier="chemicalcrate">
@@ -99,6 +97,11 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.2">
+          <Affliction identifier="nicotineaddiction" amount="0.01" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.35" />
+          <Affliction identifier="strengthen" amount="0.05" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -110,11 +113,11 @@
       <ParticleEmitter particle="cigarsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
       <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
       <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
-        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelondg2.ogg" type="OnUse" range="100" loop="true" />
         <!-- Normal cigs are 100/50 = -2 Condition -->
         <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
         <!-- Cigars Sould be double that of 100s at least -->
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-0.5">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-2">
           <ParticleEmitter particle="cigarsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
@@ -130,22 +133,18 @@
       </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,25" handle1="-5,0" handle2="-5,0">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="nicotineaddiction" amount="0.001" />
-          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
-          <Affliction identifier="strengthen" amount="0.25" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </CigarRollie>
-  <WeedCigarRollie name="Rolled Blunt" identifier="weedcigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Blunt, It smells like fresh Europan cannabis." cargocontaineridentifier="chemicalcrate">
-    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
-    <!-- <Price locationtype="Research" buyprice="40" /> -->
-    <!-- <Price locationtype="Military" buyprice="40" /> -->
-    <!-- <Price locationtype="City" buyprice="100" /> -->
-    <!-- <Price locationtype="Outpost" buyprice="110" /> -->
-    <!-- <Price locationtype="Mine" buyprice="100" /> -->
+    <BetterBlunt name="Rolled Blunt" description="A hand rolled Blunt, It smells like fresh Europan cannabis. It looks safe to consume, even by security!" identifier="betterblunt" category="Misc" Tags="longcigaritem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <!-- Should have no container option because it's hand rolled and not sold. -->
+    <!-- <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3"/> -->
+    <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
+    <Price locationtype="Research" buyprice="15" />
+    <Price locationtype="Military" buyprice="50" />
+    <Price locationtype="City" buyprice="50" />
+    <Price locationtype="Outpost" Condition="81" />
+    <Price locationtype="Mine" buyprice="15" />
+    <!-- The idea is, deconstruct into the paper breaking, ie no more organic fiber. -->
     <Deconstruct time="5">
       <Item identifier="bluntwrapper" copycondition="true" />
       <Item identifier="weedbud" copycondition="true" />
@@ -175,6 +174,69 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.5">
+        <!-- These two essentially balances in a way you get twice as high
+			to keep getting the 101% buff, you must remain at maximum high costing you
+			the debuff that greens out the player-->
+        <Affliction identifier="mjhigh" amount="0.10" />
+        <Affliction identifier="mjparalysis" amount="0.05" />
+        <Affliction identifier="nicotineaddiction" amount="0.001" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+        <Affliction identifier="strengthen" amount="0.25" />
+      </StatusEffect>
+      <!-- make the item unusable when there's less than 10% oxygen -->
+      <StatusEffect type="OnUse" target="This" UsableIn="None">
+        <Conditional OxygenPercentage="lt 10" />
+      </StatusEffect>
+      <!-- make the item usable again when there's more than 10% oxygen -->
+      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+        <Conditional OxygenPercentage="gt 10" />
+      </StatusEffect>
+      <ParticleEmitter particle="weedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      <LightComponent LightColor="1.0,0.5,0.5,0" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="50" loop="true" />
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-5.0">
+          <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnUse" target="Hull" Oxygen="-80"/> -->
+        <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
+        <StatusEffect type="InWater" target="This" IsOn="false" />
+        <StatusEffect type="OnFire" target="This" Condition="-20" IsOn="true" />
+        <StatusEffect type="OnFire" target="This">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+        <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
+      </LightComponent>
+    </RepairTool>
+    <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="28,18" handle1="-5,-3" handle2="-5,-3">
+      <StatusEffect type="OnActive" target="This" delay="0.25" stackable="true">
+        <Conditional InWater="false" />
+        <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
+      </StatusEffect>
+    </Holdable>
+  </BetterBlunt>
+  <WeedCigarRollie name="MEGA Blunt" identifier="weedcigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="The Loudest of Louds. The King of the Kush. Enough to get the entirety of Europa in the clouds. Unfit for security." cargocontaineridentifier="chemicalcrate">
+    <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
+    <Price locationtype="Research" buyprice="420" maxavailable="1" /> 
+    <!-- <Price locationtype="Military" buyprice="500" /> -->
+    <!-- <Price locationtype="City" buyprice="1000" /> -->
+    <!-- <Price locationtype="Outpost" buyprice="1100" /> -->
+    <!--<Price locationtype="Mine" buyprice="700" /> -->
+    <Sprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,0,34,6" depth="0.55" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,6,34,6" depth="0.55" maxcondition="99" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,12,34,6" depth="0.55" maxcondition="70" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,18,34,6" depth="0.55" maxcondition="50" />
+    <BrokenSprite texture="%ModDir%/Malborasek with Sound/Textures/RolledBlunt.png" sourcerect="0,24,34,6" depth="0.55" maxcondition="0" />
+    <InventoryIcon texture="%ModDir%/Malborasek with Sound/Textures/weedcigarrollieicon.png" sourcerect="0,0,120,120" depth="0.55" />
+    <Body width="32" height="4" density="9.9" />
+    <RepairTool structurefixamount="0.0" usablein="Air">
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
+        <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -189,7 +251,7 @@
         <!-- Normal cigs are 100/50 = -2 Condition -->
         <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
         <!-- Cigars Sould be double that of 100s at least -->
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-5">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-80">
           <ParticleEmitter particle="cigarsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" scalemin="1" scalemax="3" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-100" />
@@ -207,17 +269,17 @@
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="28,18" handle1="-5,-3" handle2="-5,-3">
       <StatusEffect type="OnUse" target="This">
-        <Explosion range="10.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="mjhigh" amount="0.09" />
-          <Affliction identifier="mjparalysis" amount="0.05" />
+        <Explosion range="10000.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="true" flames="false" flash="false" sparks="false" underwaterbubble="true" camerashake="0.0">
+          <Affliction identifier="mjhigh" amount="1" />
+          <Affliction identifier="mjparalysis" amount="1.0" />
           <Affliction identifier="nicotineaddiction" amount="0.001" />
-          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
-          <Affliction identifier="strengthen" amount="0.25" />
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="5" />
+          <Affliction identifier="strengthen" amount="2.5" />
         </Explosion>
       </StatusEffect>
     </Holdable>
   </WeedCigarRollie>
-  <SpiceCigarRollie name="Rolled Ballast Spice Blunt" identifier="spicecigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Blunt, It smells like the inside of a clown's... nevermind." cargocontaineridentifier="chemicalcrate">
+  <SpiceCigarRollie name="Rolled Ballast Spice Blunt" identifier="spicecigarrollie" category="Misc" Tags="longcigaritem,smallitem" description="A hand rolled Blunt, It smells like shit." cargocontaineridentifier="chemicalcrate">
     <!-- <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12"/> -->
     <!-- <Price locationtype="Research" buyprice="40" /> -->
     <!-- <Price locationtype="Military" buyprice="40" /> -->
@@ -245,6 +307,13 @@
       <StatusEffect type="OnFailure" target="UseTarget">
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.5">
+        <Affliction identifier="mjhigh" amount="0.10" />
+        <Affliction identifier="mjparalysis" amount="0.05" />
+        <Affliction identifier="nicotineaddiction" amount="0.001" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
+        <Affliction identifier="strengthen" amount="0.25" />
       </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
@@ -277,15 +346,6 @@
       <ParticleEmitter particle="spicefog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="28,18" handle1="-5,-3" handle2="-5,-3">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="spicehigh" amount="0.09" />
-          <Affliction identifier="mjparalysis" amount="0.08" />
-          <Affliction identifier="nicotineaddiction" amount="0.002" />
-          <ReduceAffliction identifier="nicotinewithdrawal" amount="0.5" />
-          <Affliction identifier="strengthen" amount="0.02" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </SpiceCigarRollie>
   <LeGrandCigar name="Le Grand Cigar" description="Hand rolled by Queen Elizabeth II, with the original copy of the United States Constitution, stolen by Space Mushrooms." identifier="legrandcigar" category="Misc" Tags="cigaritem,mediumitem" cargocontaineridentifier="metalcrate">
@@ -589,6 +649,10 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.5">
+        <Affliction identifier="mjhigh" amount="0.09" />
+        <Affliction identifier="mjparalysis" amount="0.08" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -601,7 +665,7 @@
       <ParticleEmitter particle="bluntfog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
       <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
         <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-5.0">
           <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
@@ -617,12 +681,6 @@
       </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="mjhigh" amount="0.09" />
-          <Affliction identifier="mjparalysis" amount="0.08" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </WeedRollie>
   <SpiceRollie name="Ballast Spice Joint" description="Some stuff just doesn't want to be smoked, the wiggling tentacles are a dead giveaway." identifier="spicerollie" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
@@ -654,6 +712,10 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="This">
+        <Affliction identifier="spicehigh" amount="0.09" />
+        <Affliction identifier="mjparalysis" amount="0.08" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -666,7 +728,7 @@
       <ParticleEmitter particle="spicefog" particlespersecond="0.3" anglemin="0" anglemax="360" velocitymin="0" velocitymax="0.5" />
       <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
         <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-5.0">
           <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
@@ -682,12 +744,6 @@
       </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="spicehigh" amount="0.09" />
-          <Affliction identifier="mjparalysis" amount="0.08" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </SpiceRollie>
   <TobaccoRollie name="Tobacco Joint" description="Loose Europan tobacco from questionable sources, rolled into a thin polycarbonate film for smoking." identifier="tobaccorollie" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
@@ -705,7 +761,6 @@
     </Deconstruct>
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="10">
       <RequiredSkill identifier="medical" level="10" />
-      <RequiredItem identifier="organicfiber" />
       <RequiredItem identifier="tobaccoleaf" copycondition="true" />
     </Fabricate>
     <Sprite texture="%ModDir%/Malborasek with Sound/Textures/Other.png" sourcerect="1,1,17,2" depth="0.55" />
@@ -719,6 +774,11 @@
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
       </StatusEffect>
+      <StatusEffect type="OnUse" target="Character" duration="0.2">
+        <Affliction identifier="nicotineaddiction" amount="0.01" />
+        <ReduceAffliction identifier="nicotinewithdrawal" amount="0.35" />
+        <Affliction identifier="strengthen" amount="0.05" />
+      </StatusEffect>
       <!-- make the item unusable when there's less than 10% oxygen -->
       <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
@@ -730,7 +790,7 @@
       <ParticleEmitter particle="cigsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
       <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
         <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-2.0">
+        <StatusEffect type="OnActive" target="This,Hull" Condition="-5">
           <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-80" />
@@ -746,19 +806,12 @@
       </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-          <Affliction identifier="nicotineaddiction" amount="0.003" />
-          <ReduceAffliction identifier="nicotinewithdrawal" amount="1.5" />
-          <Affliction identifier="strengthen" amount="0.40" />
-        </Explosion>
-      </StatusEffect>
     </Holdable>
   </TobaccoRollie>
-  <WeedCigarette name="Weed Cigarette" description="Quality weed in a thin polycarbonate film, ready for smoking." identifier="weedcigarette" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
-    <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3" />
+ <!-- <WeedCigarette name="Weed Cigarette" description="Quality weed in a thin polycarbonate film, ready for smoking." identifier="weedcigarette" category="Misc" Tags="cigaretteitem,smallitem" cargocontaineridentifier="chemicalcrate">
+    <PreferredContainer primary="oldcigpack" minamount="0" maxamount="3" /> -->
     <!-- <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" spawnprobability="1"/> -->
-    <Price locationtype="Research" buyprice="15" />
+   <!-- <Price locationtype="Research" buyprice="15" />
     <Price locationtype="Military" buyprice="50" />
     <Price locationtype="City" buyprice="10" />
     <Price locationtype="Outpost" Condition="81" />
@@ -778,13 +831,13 @@
       <StatusEffect type="OnFailure" target="UseTarget">
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item unusable when there's less than 10% oxygen -->
-      <StatusEffect type="OnUse" target="This" UsableIn="None">
+     <!-- <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item usable again when there's more than 10% oxygen -->
-      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+   <!--   <StatusEffect type="OnFailure" target="This" UsableIn="Air">
         <Conditional OxygenPercentage="gt 10" />
       </StatusEffect>
       <ParticleEmitter particle="weedsmoke" particlespersecond="3" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
@@ -802,9 +855,9 @@
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
           <Remove />
-        </StatusEffect>
+        </StatusEffect> -->
         <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
-      </LightComponent>
+    <!--  </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" canBeCombined="true" removeOnCombined="true" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
       <StatusEffect type="OnUse" target="This">
@@ -814,8 +867,8 @@
         </Explosion>
       </StatusEffect>
     </Holdable>
-  </WeedCigarette>
-  <Cigarette name="Cigarette" identifier="malborasek" category="Misc" Tags="cigaretteitem,smallitem" description="Quality tobacco in a thin polycarbonate film, ready for smoking." cargocontaineridentifier="chemicalcrate">
+  </WeedCigarette> -->
+<!--  <Cigarette name="Cigarette" identifier="malborasek" category="Misc" Tags="cigaretteitem,smallitem" description="Quality tobacco in a thin polycarbonate film, ready for smoking." cargocontaineridentifier="chemicalcrate">
     <PreferredContainer primary="oldcigpack" minamount="2" maxamount="10" spawnprobability="0.9" />
     <PreferredContainer primary="newcigpack" minamount="12" maxamount="12" />
     <Price locationtype="Research" buyprice="7" />
@@ -838,13 +891,13 @@
       <StatusEffect type="OnFailure" target="UseTarget">
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item unusable when there's less than 10% oxygen -->
-      <StatusEffect type="OnUse" target="This" UsableIn="None">
+    <!--  <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item usable again when there's more than 10% oxygen -->
-      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+  <!--    <StatusEffect type="OnFailure" target="This" UsableIn="Air">
         <Conditional OxygenPercentage="gt 10" />
       </StatusEffect>
       <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
@@ -861,9 +914,9 @@
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
           <Remove />
-        </StatusEffect>
+        </StatusEffect> -->
         <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
-      </LightComponent>
+ <!--     </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
       <StatusEffect type="OnUse" target="This">
@@ -874,8 +927,8 @@
         </Explosion>
       </StatusEffect>
     </Holdable>
-  </Cigarette>
-  <hundredsCigarette name="Cigarette 100s" identifier="hundredscigarette" category="Misc" Tags="longcigaretteitem,smallitem" description="A Loose Benges and Headsons 100mm Cigarette, It smells like fresh Europan tobacco" cargocontaineridentifier="chemicalcrate">
+  </Cigarette> -->
+<!--  <hundredsCigarette name="Cigarette 100s" identifier="hundredscigarette" category="Misc" Tags="longcigaretteitem,smallitem" description="A Loose Benges and Headsons 100mm Cigarette, It smells like fresh Europan tobacco" cargocontaineridentifier="chemicalcrate">
     <PreferredContainer primary="bnhcigpack" minamount="12" maxamount="12" />
     <Price locationtype="Research" buyprice="14" />
     <Price locationtype="Military" buyprice="16" />
@@ -898,21 +951,21 @@
       <StatusEffect type="OnFailure" target="UseTarget">
         <ParticleEmitter particle="bubbles" particlespersecond="2" anglemin="-10" anglemax="10" scalemin="0.3" scalemax="0.7" velocitymin="5" velocitymax="100" copyentityangle="true" />
         <ParticleEmitter particle="fleshsmoke" particlespersecond="1" anglemin="-10" anglemax="10" scalemin="1" scalemax="1.5" velocitymin="5" velocitymax="200" copyentityangle="true" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item unusable when there's less than 10% oxygen -->
-      <StatusEffect type="OnUse" target="This" UsableIn="None">
+  <!--    <StatusEffect type="OnUse" target="This" UsableIn="None">
         <Conditional OxygenPercentage="lt 10" />
-      </StatusEffect>
+      </StatusEffect> -->
       <!-- make the item usable again when there's more than 10% oxygen -->
-      <StatusEffect type="OnFailure" target="This" UsableIn="Air">
+   <!--   <StatusEffect type="OnFailure" target="This" UsableIn="Air">
         <Conditional OxygenPercentage="gt 10" />
       </StatusEffect>
       <ParticleEmitter particle="cigsmoke" particlespersecond="2" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
       <LightComponent LightColor="1.0,0.5,0.5,0.2" Flicker="0.4" range="100" IsOn="false" CastShadows="false">
-        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" />
+        <sound file="%ModDir%/Malborasek with Sound/Sounds/smokelong2.ogg" type="OnUse" range="100" loop="true" /> -->
         <!-- Normal cigs are 100/50 = -2 Condition -->
         <!-- 100s should be 100/80 = -1.25 Condition Making it go >38% longer  -->
-        <StatusEffect type="OnActive" target="This,Hull" Condition="-1.25">
+    <!--    <StatusEffect type="OnActive" target="This,Hull" Condition="-1.25">
           <ParticleEmitter particle="cigsmoke" particlespersecond="1" anglemin="-5" anglemax="5" velocitymin="10" velocitymax="20" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="Hull" Oxygen="-50" />
@@ -923,9 +976,9 @@
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
           <Remove />
-        </StatusEffect>
+        </StatusEffect> -->
         <!-- <StatusEffect type="OnBroken" target="This" IsOn="false" /> -->
-      </LightComponent>
+ <!--     </LightComponent>
     </RepairTool>
     <Holdable slots="RightHand,LeftHand,Any" controlpose="true" aimpos="35,18" handle1="-5,0" handle2="-5,0">
       <StatusEffect type="OnUse" target="This">
@@ -936,8 +989,8 @@
         </Explosion>
       </StatusEffect>
     </Holdable>
-  </hundredsCigarette>
-  <bnhcigpack name="Benges and Headsons 100s Cigarette Pack" identifier="bnhcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is of a particularly expensive brand." cargocontaineridentifier="chemicalcrate">
+  </hundredsCigarette> -->
+ <!-- <bnhcigpack name="Benges and Headsons 100s Cigarette Pack" identifier="bnhcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is of a particularly expensive brand." cargocontaineridentifier="chemicalcrate">
     <PreferredContainer primary="outpostcrewcabinet" spawnprobability="0.1" />
     <PreferredContainer primary="abandonedcrewcab" spawnprobability="0.05" />
     <Price locationtype="Research" buyprice="40" />
@@ -967,8 +1020,8 @@
     <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
       <Containable items="cigaretteitem,longcigaretteitem" />
     </ItemContainer>
-  </bnhcigpack>
-  <oldcigpack name="Old Cigarette Pack" identifier="oldcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one has begun to rot away." cargocontaineridentifier="chemicalcrate">
+  </bnhcigpack> -->
+ <!-- <oldcigpack name="Old Cigarette Pack" identifier="oldcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one has begun to rot away." cargocontaineridentifier="chemicalcrate">
     <PreferredContainer primary="abandonedcrewcab" spawnprobability="0.8" />
     <PreferredContainer primary="outposttrashcan" minamount="0" maxamount="1" spawnprobability="0.60" />
     <Price locationtype="Research" buyprice="20" />
@@ -996,8 +1049,8 @@
     <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
       <Containable items="cigaretteitem" />
     </ItemContainer>
-  </oldcigpack>
-  <newcigpack name="New Cigarette Pack" identifier="newcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is relatively well preserved." cargocontaineridentifier="chemicalcrate">
+  </oldcigpack> -->
+ <!-- <newcigpack name="New Cigarette Pack" identifier="newcigpack" category="Misc" Tags="smallitem" description="A polycarbonate container designed with a flavor-protective foil, and sealed through a transparent airtight plastic film. This one is relatively well preserved." cargocontaineridentifier="chemicalcrate">
     <PreferredContainer primary="outpostcrewcabinet" spawnprobability="0.3" />
     <Price locationtype="Research" buyprice="80" />
     <Price locationtype="Military" buyprice="96" />
@@ -1026,7 +1079,7 @@
     <ItemContainer capacity="12" canbeselected="true" hideitems="false" keepopenwhenequipped="true">
       <Containable items="cigaretteitem" />
     </ItemContainer>
-  </newcigpack>
+  </newcigpack> -->
   <Bottle name="Plastic Bottle" identifier="pbottle" category="Misc,oxygensource,oxygentank,refillableoxygentank" Tags="smallitem,poopcontainer" description="A simple plastic bottle. Hmmmmm..." cargocontaineridentifier="metalcrate" scale="0.5">
     <Price locationtype="Research" buyprice="7" />
     <Price locationtype="Military" buyprice="8" />
@@ -1077,7 +1130,7 @@
       </SubContainer>
     </ItemContainer>
   </Bottle>
-  <JenkBalloon name="Rubber Balloon" identifier="balloondrug" category="Equipment" Tags="smallitem,oxygentank,oxygensource" cargocontaineridentifier="metalcrate" description="An unassuming plastic balloon." scale="0.5">
+ <!-- <JenkBalloon name="Rubber Balloon" identifier="balloondrug" category="Equipment" Tags="smallitem,oxygentank,oxygensource" cargocontaineridentifier="metalcrate" description="An unassuming plastic balloon." scale="0.5">
     <PreferredContainer primary="wreckengcab,abandonedengcab,outpostengcab,beaconengcab" amount="1" spawnprobability="0.01" />
     <Price baseprice="5">
       <Price storeidentifier="merchantoutpost" minavailable="3" />
@@ -1109,12 +1162,12 @@
     </Holdable>
     <Sprayer barrelpos="-5,0" spread="0" unskilledspread="0" drawhudwhenequipped="false" crosshairscale="0.0" spraystrength="0.0" range="0">
       <ParticleEmitter particle="spray" color="100,50,0,0" velocitymin="0.0" velocitymax="5.0" particlespersecond="5" />
-      <sound file="Content/Items/Tools/Sprayer.ogg" type="OnUse" range="500.0" loop="true" />
+      <sound file="Content/Items/Tools/Sprayer.ogg" type="OnUse" range="500.0" loop="true" /> -->
       <!--When containing paint, reduce its condition by 1.5 when used-->
       <!--Reduce ethanol condition slower than paint-->
-    </Sprayer>
+  <!--  </Sprayer>
   </JenkBalloon>
-</Items>
+</Items> -->
 <!-- legacy **************************************************************************************** -->
 <!-- Medical items -->
 <!--

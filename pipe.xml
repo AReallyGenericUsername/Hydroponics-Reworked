@@ -99,24 +99,18 @@
           <RequiredItem items="pipetobacco" type="Contained" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="This" duration="2">
-          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-            <ReduceAffliction identifier="nicotinewithdrawal" amount="2.0" />
-            <Affliction identifier="nicotineaddiction" amount="0.005" />
-            <Affliction identifier="strengthen" amount="0.35" />
-          </Explosion>
+          <ReduceAffliction identifier="nicotinewithdrawal" amount="2.0" />
+          <Affliction identifier="nicotineaddiction" amount="0.005" />
+          <Affliction identifier="strengthen" amount="0.35" />
           <RequiredItem items="tobaccoleaf" type="Contained" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="This" duration="2">
-          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-            <Affliction identifier="mjhigh" amount="0.15" />
-            <Affliction identifier="mjparalysis" amount="0.12" />
-          </Explosion>
+          <Affliction identifier="mjhigh" amount="0.15" />
+          <Affliction identifier="mjparalysis" amount="0.12" />
           <RequiredItem items="weedbud" type="Contained" />
         </StatusEffect>
         <StatusEffect type="OnUse" target="This">
-          <Explosion range="5.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-            <Affliction identifier="jenk" amount="0.6"></Affliction>
-          </Explosion>
+          <Affliction identifier="jenk" amount="0.6"></Affliction>
           <RequiredItem items="poop" type="Contained" />
         </StatusEffect>
         <RepairTool structurefixamount="0.0" usablein="Air">
@@ -160,11 +154,9 @@
         <Containable items="smallitem" excludeditems="toolbelt,toolbox,bandolier,duffel2,duffel,allbag,baropplasticbag" />
       </ItemContainer>
       <Holdable slots="Any,RightHand" aimable="true" aimpos="15,18" controlpose="true" handle1="10,0" swingamount="0,0" swingspeed="0.5" swingwhenusing="false" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This">
+        <StatusEffect type="OnUse" target="Character" duration="2">
           <RequiredItems items="paint" type="Contained" />
-          <Explosion range="2.0" structuredamage="0" itemdamage="0" stun="0" force="0.01" severlimbsprobability="0" decal="" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="0.0">
-            <Affliction identifier="painthigh" amount="0.25"></Affliction>
-          </Explosion>
+          <Affliction identifier="painthigh" amount="0.25"></Affliction>
         </StatusEffect>
         <StatusEffect type="OnUse" target="Contained" Condition="-3">
           <RequiredItem items="paint" type="Contained" />

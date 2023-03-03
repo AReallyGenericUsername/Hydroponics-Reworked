@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
   <!-- Debuffs -->
-  <Affliction name="High" identifier="mjHigh" description="Your breath stinks, but it's also a nice aroma. It feels like your are less in pain from burns and trauma." type="resistance" isbuff="true" causeofdeathdescription="You had too much weed." selfcauseofdeathdescription="Earth was nice, You smoked more weed than physically possible by real humans..." limbspecific="false" indicatorlimb="Head" activationthreshold="20" maxstrength="250">
+  <Affliction name="High" identifier="mjHigh" description="Your breath stinks, but it's also a nice aroma. It feels like your are less in pain from burns and trauma." type="resistance" isbuff="true" causeofdeathdescription="You had too much weed. RIP BOZO" selfcauseofdeathdescription="Earth was nice, You smoked more weed than physically possible by real humans... RIP BOZO #PACKWATCH YOU WONT BE MISSED" limbspecific="false" indicatorlimb="Head" activationthreshold="20" maxstrength="250">
     <Effect minstrength="20" maxstrength="80" strengthchange="-0.3" minchromaticaberration="1.0" maxchromaticaberration="2.0">
       <StatusEffect target="Character" setinterval="1" disabledeltatime="true">
         <ReduceAffliction identifier="blunttrauma" amount="0.01" />

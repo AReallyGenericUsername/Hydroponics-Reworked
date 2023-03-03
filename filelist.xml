@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Hydroponics Reworked" modversion="0.1.0" corepackage="False" steamworkshopid="22222222" gameversion="0.20.16.1" altnames="Hydroponics">
+<contentpackage name="Hydroponics Reworked" modversion="0.8.5" corepackage="False" steamworkshopid="2940512481" gameversion="0.21.6.0">
   <Item file="%ModDir%/Materials/materials.xml" />
   <Item file="%ModDir%/Materials/medmaterials.xml" />
   <Item file="%ModDir%/Materials/minerals.xml" />
